@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javier Pool Asesores | Asesor en venta de empresas en España</title>
+  <meta name="description" content="Asesoro a empresarios que quieren vender su empresa en España. Solo comisión de éxito. KPMG · IESE · Empresario. Primera consulta gratuita.">
+  <meta name="keywords" content="vender empresa España, asesor venta empresa, compraventa pymes, M&A España, cómo vender mi empresa">
+  <meta name="theme-color" content="#0d1117">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-navy: #0c1a35;
+      --text: #0c1a35;
+      --text-body: #3a4a63;
+      --text-muted: #7a8499;
+      --gold: #c4922a;
+      --gold-dim: rgba(196, 146, 42, 0.15);
+      --border-light: rgba(12, 26, 53, 0.09);
+      --border-gold: rgba(196, 146, 42, 0.3);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    ::selection {
+      background: rgba(196, 146, 42, 0.2);
+      color: var(--bg-navy);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-optical-sizing: auto;
+      background: #ffffff;
+      background-image: none;
+      color: var(--text-body);
+      line-height: 1.8;
+      font-size: 1.0625rem;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+      letter-spacing: -0.035em;
+    }
+
+    p {
+      color: var(--text-body);
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity var(--transition);
+    }
+
+    a:hover { opacity: 0.85; }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* --- Navbar --- */
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-logo strong { color: var(--bg-navy); }
+    .nav-logo span { color: var(--text-muted); }
+    .nav-links a { color: var(--text-muted); }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-wrap::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%);
+      opacity: 0.6;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      gap: 1.5rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .nav-logo strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--bg-navy);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-logo span {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      opacity: 1;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.25s ease;
+      transform-origin: left;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      width: 44px;
+      height: 44px;
+      padding: 10px;
+      background: transparent;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: currentColor;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .nav-wrap.is-open .nav-toggle span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .nav-wrap.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .nav-wrap.is-open .nav-toggle span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    @media (max-width: 900px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        top: 72px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem min(92vw, 1120px);
+        margin: 0 auto;
+        max-width: 1120px;
+        background: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid var(--border-light);
+        gap: 1.25rem;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
+      }
+      .nav-wrap.is-open .nav-links {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    /* --- Reveal animation --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: 0s;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero .hero-grid > .reveal:nth-child(1) { transition-delay: 0s; }
+    .hero .hero-grid > .reveal:nth-child(2) { transition-delay: 0.1s; }
+
+    section .container > .reveal:nth-child(1) { transition-delay: 0s; }
+    section .container > .reveal:nth-child(2) { transition-delay: 0.1s; }
+    section .container > .reveal:nth-child(3) { transition-delay: 0.2s; }
+    section .container > .reveal:nth-child(4) { transition-delay: 0.3s; }
+    section .container > .reveal:nth-child(5) { transition-delay: 0.4s; }
+    section .container > .reveal:nth-child(6) { transition-delay: 0.5s; }
+    section .container > .reveal:nth-child(7) { transition-delay: 0.6s; }
+    section .container > .reveal:nth-child(8) { transition-delay: 0.7s; }
+    section .container > .reveal:nth-child(9) { transition-delay: 0.8s; }
+    section .container > .reveal:nth-child(10) { transition-delay: 0.9s; }
+
+    .timeline .timeline-step.reveal:nth-child(1) { transition-delay: 0s; }
+    .timeline .timeline-step.reveal:nth-child(2) { transition-delay: 0.1s; }
+    .timeline .timeline-step.reveal:nth-child(3) { transition-delay: 0.2s; }
+    .timeline .timeline-step.reveal:nth-child(4) { transition-delay: 0.3s; }
+    .timeline .timeline-step.reveal:nth-child(5) { transition-delay: 0.4s; }
+    .timeline .timeline-step.reveal:nth-child(6) { transition-delay: 0.5s; }
+    .timeline .timeline-step.reveal:nth-child(7) { transition-delay: 0.6s; }
+
+    .faq-list .faq-item.reveal:nth-child(1) { transition-delay: 0s; }
+    .faq-list .faq-item.reveal:nth-child(2) { transition-delay: 0.1s; }
+    .faq-list .faq-item.reveal:nth-child(3) { transition-delay: 0.2s; }
+    .faq-list .faq-item.reveal:nth-child(4) { transition-delay: 0.3s; }
+    .faq-list .faq-item.reveal:nth-child(5) { transition-delay: 0.4s; }
+    .faq-list .faq-item.reveal:nth-child(6) { transition-delay: 0.5s; }
+    .faq-list .faq-item.reveal:nth-child(7) { transition-delay: 0.6s; }
+
+    .blog-grid .blog-card.reveal:nth-child(1) { transition-delay: 0s; }
+    .blog-grid .blog-card.reveal:nth-child(2) { transition-delay: 0.1s; }
+    .blog-grid .blog-card.reveal:nth-child(3) { transition-delay: 0.2s; }
+
+    /* --- Hero --- */
+    .hero {
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 8rem;
+      scroll-margin-top: 0;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 52%;
+      height: 130%;
+      background: var(--bg-navy);
+      clip-path: polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%);
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 52%;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, var(--gold) 60%);
+      z-index: 1;
+    }
+
+    .hero .hero-grid {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+
+    .eyebrow {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-line {
+      width: 42%;
+      height: 2px;
+      background: var(--gold);
+      opacity: 1;
+      margin-bottom: 1.5rem;
+      border: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      margin-bottom: 1.35rem;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      color: var(--bg-navy);
+    }
+
+    .hero p.lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 2rem;
+      max-width: 32em;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      padding: 1rem 2.25rem;
+      background: var(--bg-navy);
+      color: #ffffff !important;
+      border: none;
+      border-radius: 2px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(12, 26, 53, 0.2);
+      transition: var(--transition);
+    }
+
+    .btn-gold::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.08);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .btn-gold:hover::after {
+      opacity: 1;
+    }
+
+    .btn-gold:hover {
+      opacity: 1;
+      background: var(--gold);
+      color: #ffffff !important;
+      border: none;
+      box-shadow: 0 8px 32px rgba(196, 146, 42, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .hero .note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      margin-top: 2rem;
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.25rem;
+    }
+
+    .hero-stats .sep {
+      color: var(--gold);
+      margin: 0 0.75rem;
+      opacity: 0.6;
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .hero-stats > span:not(.sep) {
+      flex-shrink: 0;
+    }
+
+    .photo-placeholder {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      max-height: 420px;
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .photo-placeholder::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 45%;
+      pointer-events: none;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(12, 26, 53, 0.08), transparent);
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 4/5;
+      max-height: 420px;
+    }
+
+    .hero-photo-wrap::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 45%;
+      pointer-events: none;
+      z-index: 1;
+      background: linear-gradient(to top, rgba(12, 26, 53, 0.08), transparent);
+    }
+
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 2px;
+      border: none;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+      box-sizing: border-box;
+    }
+
+    .photo-ph-label {
+      position: relative;
+      z-index: 2;
+    }
+
+    .photo-placeholder.sm {
+      max-height: 280px;
+      aspect-ratio: 3/4;
+    }
+
+    /* --- Sections common --- */
+    section {
+      padding: 6.5rem 0;
+      scroll-margin-top: 5.5rem;
+    }
+
+    /* --- Sistema de color definitivo --- */
+    section.alt,
+    .questions.alt,
+    #proceso,
+    #faq,
+    #blog,
+    #quien-soy,
+    #honorarios {
+      background-image: none;
+    }
+
+    /* HERO */
+    .hero h1 { color: var(--bg-navy); }
+    .hero .lead,
+    .hero p.lead { color: var(--text-muted); }
+    .hero .eyebrow { color: var(--gold); }
+    .hero-line { background: var(--gold); opacity: 0.5; }
+    .hero-stats { color: var(--text-muted); }
+    .hero-stats .sep { color: var(--gold); opacity: 0.6; }
+
+    /* PREGUNTAS — navy */
+    .questions {
+      background: var(--bg-navy);
+    }
+    .questions .section-title { color: #ffffff; }
+    .questions .section-sub { color: rgba(255, 255, 255, 0.5); }
+    .questions .card-q {
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 2px solid var(--gold);
+      box-shadow: none;
+    }
+    .questions .card-q h3 { color: #ffffff; }
+    .questions .card-q p { color: rgba(255, 255, 255, 0.5); }
+    .questions .closing {
+      color: rgba(255, 255, 255, 0.85);
+      font-family: "Cormorant Garamond", serif;
+    }
+    .questions .btn-secondary {
+      border-color: var(--border-gold);
+      color: var(--gold) !important;
+    }
+    .questions .btn-secondary:hover {
+      background: rgba(196, 146, 42, 0.1);
+    }
+
+    /* PROCESO — navy */
+    #proceso { background: var(--bg-navy); }
+    #proceso .section-title { color: #ffffff; }
+    #proceso .section-sub { color: rgba(255, 255, 255, 0.5); }
+    #proceso .timeline::before {
+      background: linear-gradient(180deg, var(--gold), rgba(196, 146, 42, 0.1));
+      width: 1px;
+    }
+    #proceso .timeline-step::before {
+      background: var(--bg-navy);
+      border: 1px solid rgba(196, 146, 42, 0.5);
+      color: var(--gold);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      width: 1.8rem;
+      height: 1.8rem;
+      box-shadow: 0 0 0 4px rgba(196, 146, 42, 0.06);
+    }
+    #proceso .timeline-step h3 { color: #ffffff; }
+    #proceso .timeline-step p { color: rgba(255, 255, 255, 0.5); }
+
+    /* HONORARIOS — navy */
+    #honorarios { background: var(--bg-navy); }
+    #honorarios .section-title { color: #ffffff; }
+    #honorarios .big-num { color: var(--gold); text-shadow: none; }
+    #honorarios .honorarios-box > p { color: rgba(255, 255, 255, 0.5); }
+    #honorarios .promise {
+      color: #ffffff;
+      border: 1px solid var(--border-gold);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    /* FAQ — blanco */
+    #faq { background: #ffffff; }
+    #faq .section-title { color: var(--bg-navy); }
+    #faq .faq-item { border-bottom: 1px solid var(--border-light); }
+    #faq .faq-question { color: var(--bg-navy); }
+    #faq .faq-question:hover { color: var(--gold); }
+    #faq .faq-icon { color: var(--gold); }
+    #faq .faq-answer-inner { color: var(--text-muted); }
+
+    /* BLOG — blanco */
+    #blog {
+      background: #ffffff;
+    }
+
+    #blog::before {
+      content: "";
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(12, 26, 53, 0.08) 50%, transparent);
+      margin-bottom: 0;
+    }
+
+    #blog .section-title { color: var(--bg-navy); }
+    #blog .section-sub { color: var(--text-muted); }
+
+    #blog .blog-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      box-shadow: 0 2px 12px rgba(12, 26, 53, 0.05);
+    }
+
+    #blog .blog-card:hover {
+      border-color: var(--gold);
+      background: #ffffff;
+      box-shadow: 0 8px 32px rgba(12, 26, 53, 0.1);
+      transform: translateY(-3px);
+    }
+
+    #blog .blog-card .meta { color: var(--gold); }
+    #blog .blog-card h3 { color: var(--bg-navy); }
+    #blog .blog-card .excerpt { color: var(--text-muted); }
+    #blog .blog-card .read-more { color: var(--gold) !important; }
+    #blog .blog-all a { color: var(--gold); }
+
+    /* SEPARADORES entre secciones navy-blanco */
+    #faq::before {
+      content: "";
+      display: block;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--border-gold) 50%, transparent);
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin-bottom: 1rem;
+      text-align: center;
+      letter-spacing: -0.035em;
+      color: var(--bg-navy);
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin: 0 auto 3rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* --- Questions --- */
+    .questions .section-title { text-align: left; }
+    .questions .section-sub { text-align: left; margin-left: 0; margin-bottom: 2.5rem; }
+
+    .card-q {
+      background: #ffffff;
+      border: none;
+      border-left: 2px solid var(--gold);
+      border-radius: 0;
+      padding: 2rem 2rem 2rem 2.25rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 1px 4px rgba(12, 26, 53, 0.05), 0 8px 24px rgba(12, 26, 53, 0.04);
+      transition: var(--transition);
+    }
+
+    .card-q:hover {
+      box-shadow: 0 4px 32px rgba(12, 26, 53, 0.1);
+      transform: translateX(4px);
+    }
+
+    .card-q h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      color: var(--bg-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .card-q p {
+      color: var(--text-muted);
+      font-size: 0.97rem;
+    }
+
+    .questions .closing {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.85);
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid var(--border-gold);
+      color: var(--gold) !important;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      padding: 0.9rem 1.75rem;
+      border-radius: 2px;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--gold-dim);
+      opacity: 1;
+    }
+
+    /* --- Mi historia (#quien-soy) --- */
+    #quien-soy {
+      background: #ffffff;
+      padding: 7rem 0;
+    }
+
+    #quien-soy .quien-grid {
+      display: block;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    #quien-soy .quien-photo {
+      display: none;
+    }
+
+    #quien-soy .quien-text .section-title {
+      font-size: clamp(2.4rem, 4vw, 3.2rem);
+      color: var(--bg-navy);
+      text-align: left;
+      margin-bottom: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    #quien-soy .quien-narrativa {
+      position: relative;
+      padding-left: 1.75rem;
+      border-left: 2px solid var(--gold);
+      margin-bottom: 4rem;
+    }
+
+    #quien-soy .quien-narrativa p {
+      font-size: 1.1rem;
+      line-height: 1.95;
+      color: var(--text-body);
+      margin-bottom: 0;
+    }
+
+    #quien-soy .quien-aporte,
+    #quien-soy .quien-aporte-item,
+    #quien-soy .quien-asimetria,
+    #quien-soy .quien-asimetria-item,
+    #quien-soy .quien-asimetria-label {
+      all: unset;
+      display: none;
+    }
+
+    /* VALOR HUB */
+    #quien-soy .valor-hub {
+      margin-top: 4.5rem;
+    }
+
+    #quien-soy .valor-claim {
+      margin-bottom: 3rem;
+    }
+
+    #quien-soy .valor-claim p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+      font-weight: 600;
+      color: var(--bg-navy);
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--gold);
+      margin: 0;
+    }
+
+    #quien-soy .valor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border-light);
+      border-left: 1px solid var(--border-light);
+    }
+
+    #quien-soy .valor-card {
+      padding: 2.5rem 2.25rem;
+      border-right: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      background: #ffffff;
+      position: relative;
+      transition: background 0.25s ease;
+    }
+
+    #quien-soy .valor-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #quien-soy .valor-card:hover::before {
+      opacity: 1;
+    }
+
+    #quien-soy .valor-card:hover {
+      background: rgba(196, 146, 42, 0.025);
+    }
+
+    #quien-soy .valor-num {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.75;
+      margin-bottom: 1rem;
+    }
+
+    #quien-soy .valor-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--bg-navy);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    #quien-soy .valor-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    #quien-soy .valor-card--highlight {
+      grid-column: 1 / -1;
+      background: var(--bg-navy);
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 3rem;
+      align-items: start;
+      padding: 2.75rem 2.25rem;
+    }
+
+    #quien-soy .valor-card--highlight::before {
+      display: none;
+    }
+
+    #quien-soy .valor-card--highlight:hover {
+      background: var(--bg-navy);
+    }
+
+    #quien-soy .valor-card--highlight .valor-num {
+      grid-column: 1 / -1;
+      color: rgba(196, 146, 42, 0.6);
+      opacity: 1;
+    }
+
+    #quien-soy .valor-num {
+      display: none;
+    }
+
+    #quien-soy .valor-card--highlight h3 {
+      color: #ffffff;
+      font-size: 1.35rem;
+      margin-bottom: 0;
+      align-self: center;
+    }
+
+    #quien-soy .valor-card--highlight p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+      border-left: 1px solid rgba(196, 146, 42, 0.3);
+      padding-left: 2rem;
+    }
+
+    @media (max-width: 700px) {
+      #quien-soy .valor-grid {
+        grid-template-columns: 1fr;
+        border-left: none;
+      }
+
+      #quien-soy .valor-card {
+        border-right: none;
+        padding: 2rem 0;
+      }
+
+      #quien-soy .valor-card--highlight {
+        grid-column: 1;
+        grid-template-columns: 1fr;
+        padding: 2rem 0;
+        border-right: none;
+        gap: 1rem;
+      }
+
+      #quien-soy .valor-card--highlight p {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(196, 146, 42, 0.25);
+        padding-top: 1rem;
+      }
+
+      #quien-soy .valor-claim p {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      #quien-soy .quien-narrativa {
+        padding-left: 1.25rem;
+      }
+    }
+
+    /* --- Timeline --- */
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.5rem;
+      top: 0.25rem;
+      bottom: 0.25rem;
+      width: 1px;
+      background: linear-gradient(180deg, var(--gold) 0%, rgba(196, 146, 42, 0.2) 65%, transparent 100%);
+      opacity: 0.85;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding-bottom: 2.25rem;
+    }
+
+    .timeline-step:last-child { padding-bottom: 0; }
+
+    .timeline-step::before {
+      content: attr(data-step);
+      position: absolute;
+      left: -2.5rem;
+      top: 0;
+      width: 1.6rem;
+      height: 1.6rem;
+      background: #ffffff;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition);
+    }
+
+    .timeline-step:hover::before {
+      background: var(--gold-dim);
+    }
+
+    .timeline-step h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .timeline-step p {
+      font-size: 0.97rem;
+      line-height: 1.8;
+    }
+
+    /* --- Honorarios --- */
+    .honorarios-box {
+      text-align: center;
+      max-width: 40rem;
+      margin: 0 auto;
+    }
+
+    .honorarios-box .big-num {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(5rem, 14vw, 7.5rem);
+      line-height: 1;
+      margin-bottom: 0;
+      text-shadow: none;
+    }
+
+    .honorarios-box .big-num::after {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0.5rem auto 1.5rem;
+      opacity: 0.5;
+    }
+
+    .honorarios-box > p:nth-of-type(2) {
+      font-size: 1rem;
+    }
+
+    .honorarios-box .promise {
+      margin: 2rem 0;
+      padding: 1.75rem 2rem;
+      border-radius: 3px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+    }
+
+    .honorarios-box > p:nth-of-type(4) {
+      font-size: 0.97rem;
+    }
+
+    /* --- FAQ --- */
+    .faq-list {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--bg-navy);
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .faq-question:hover { color: var(--gold); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+      transition: transform var(--transition);
+    }
+
+    .faq-item.is-open .faq-icon { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-answer-inner {
+      padding-bottom: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.97rem;
+      line-height: 1.8;
+      border-bottom: 2px solid transparent;
+    }
+
+    .faq-item.is-open .faq-answer-inner {
+      border-bottom-color: var(--gold);
+    }
+
+    /* --- Blog --- */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+
+    .blog-card {
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      padding: 2rem;
+      box-shadow: 0 2px 12px rgba(12, 26, 53, 0.06), 0 1px 3px rgba(12, 26, 53, 0.04);
+      transition: var(--transition);
+    }
+
+    .blog-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 16px 48px rgba(12, 26, 53, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .blog-card .meta {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      color: var(--bg-navy);
+    }
+
+    .blog-card .excerpt {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blog-card .read-more {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold) !important;
+      display: inline-block;
+    }
+
+    .blog-all {
+      text-align: center;
+      margin-top: 2.25rem;
+      font-size: 0.95rem;
+    }
+
+    .blog-all a {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    /* --- CTA final --- */
+    .cta-final {
+      position: relative;
+      padding: 7rem 0;
+      margin-top: 2rem;
+      border-top: none;
+      overflow: hidden;
+      background: var(--bg-navy);
+      color: #ffffff;
+    }
+
+    .cta-final::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(196, 146, 42, 0.07) 0%, transparent 65%);
+      pointer-events: none;
+      opacity: 1;
+    }
+
+    .cta-inner {
+      position: relative;
+      text-align: center;
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
+    .cta-inner h2 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .cta-inner .sub,
+    .cta-final .sub {
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .cta-inner .cta-response {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 1.25rem;
+      margin-bottom: 0;
+    }
+
+    .cta-inner .email-small {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .cta-inner .email-small a,
+    .cta-final .email-small a {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .cta-inner .email-small a:hover,
+    .cta-final .email-small a:hover {
+      color: var(--gold);
+      opacity: 1;
+    }
+
+    .cta-final .btn-gold {
+      background: transparent;
+      border: 1px solid rgba(196, 146, 42, 0.5);
+      color: var(--gold) !important;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      box-shadow: none;
+    }
+
+    .cta-final .btn-gold:hover {
+      background: var(--gold);
+      color: var(--bg-navy) !important;
+      border-color: var(--gold);
+      box-shadow: none;
+    }
+
+    /* --- Footer — navy */
+    footer {
+      padding: 5rem 0 3rem;
+      background: var(--bg-navy);
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-logo strong { color: #ffffff; }
+    .footer-logo span { color: rgba(255, 255, 255, 0.25); }
+    .footer-center { color: rgba(255, 255, 255, 0.25); }
+    .footer-right a { color: rgba(255, 255, 255, 0.25); }
+    .footer-right a:hover { color: var(--gold); }
+    .footer-tagline { color: rgba(255, 255, 255, 0.2); }
+    .footer-legal {
+      color: rgba(255, 255, 255, 0.2);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .footer-legal a { color: rgba(255, 255, 255, 0.2); }
+    .footer-legal a:hover { color: var(--gold); }
+
+    .footer-tagline {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      text-align: center;
+      margin: 3rem 0 0;
+      line-height: 1.5;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-grid > div:first-child { order: 1; }
+    }
+
+    .footer-logo strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-logo span {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-center {
+      text-align: center;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-right a {
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 700px) {
+      .footer-right { text-align: center; }
+    }
+
+    .footer-legal {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+    }
+
+    .footer-cta {
+      background: transparent;
+      text-align: center;
+      padding-bottom: 3.5rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .footer-cta-email {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-cta-email a {
+      color: rgba(255, 255, 255, 0.25);
+      transition: color 0.25s ease;
+    }
+
+    .footer-cta-email a:hover {
+      color: var(--gold);
+    }
+
+    .footer-cta .btn-gold {
+      background: transparent;
+      border: 1px solid var(--border-gold);
+      color: var(--gold) !important;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+    }
+
+    .footer-cta .btn-gold:hover {
+      background: var(--gold);
+      color: var(--bg-navy) !important;
+      border-color: var(--gold);
+    }
+
+    /* --- Detalles decorativos --- */
+
+    /* HERO — línea decorativa superior de página */
+    .nav-wrap::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold) 35%, var(--gold) 65%, transparent 100%);
+      opacity: 0.5;
+      z-index: 10;
+    }
+
+    /* HERO — marca de agua tipográfica decorativa */
+    .hero::after {
+      content: "JP";
+      position: absolute;
+      right: 54%;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(8rem, 16vw, 14rem);
+      font-weight: 700;
+      color: var(--bg-navy);
+      opacity: 0.03;
+      letter-spacing: -0.05em;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+      line-height: 1;
+    }
+
+    /* QUIÉN SOY — esquina decorativa */
+    #quien-soy {
+      position: relative;
+    }
+
+    #quien-soy::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle at top right, rgba(196, 146, 42, 0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Línea de entrada a la sección */
+    #quien-soy > .container::before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+      margin: 0 auto 3rem;
+      opacity: 0.5;
+    }
+
+    /* Separador decorativo entre narrativa y valor-hub */
+    .quien-narrativa::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      margin-top: 2.5rem;
+    }
+
+    /* Detalle en cada valor-card: punto dorado en esquina */
+    .valor-card::after {
+      content: "";
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.75rem;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .valor-card:hover::after {
+      opacity: 0.4;
+    }
+
+    /* FAQ — fondo con patrón de líneas diagonales muy sutil */
+    #faq {
+      position: relative;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(12, 26, 53, 0.015) 40px,
+        rgba(12, 26, 53, 0.015) 41px
+      );
+    }
+
+    /* FAQ — línea dorada al abrir respuesta */
+    .faq-item.is-open .faq-answer-inner {
+      border-bottom: 1px solid rgba(196, 146, 42, 0.3);
+    }
+
+    /* FAQ — número sutil de pregunta */
+    .faq-list {
+      counter-reset: faq-counter;
+    }
+
+    .faq-item {
+      counter-increment: faq-counter;
+    }
+
+    .faq-question::before {
+      content: counter(faq-counter, decimal-leading-zero);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      opacity: 0.4;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .faq-item:hover .faq-question::before,
+    .faq-item.is-open .faq-question::before {
+      opacity: 0.8;
+    }
+
+    /* Transición de entrada más elegante en reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Separador elegante entre secciones blanca→navy */
+    #quien-soy + section,
+    #faq + section {
+      position: relative;
+    }
+
+    #quien-soy + section::before,
+    #faq + section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrap" id="nav-wrap">
+    <div class="container nav">
+      <a href="#" class="nav-logo" aria-label="Inicio">
+        <strong>Javier Pool Asesores</strong>
+        <span>Venta de empresas</span>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#quien-soy">Quién soy</a></li>
+        <li><a href="#proceso">El proceso</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <div class="hero-line" aria-hidden="true"></div>
+        <h1>Vender tu empresa es sencillo si confías en quienes saben hacerlo.</h1>
+        <p class="lead">Vendí mi compañía tras 20 años al frente y desde entonces ayudo a otros empresarios a hacerlo. Vender bien o vender mal lo cambia todo — y estoy aquí para que esa diferencia juegue a tu favor.</p>
+        <a class="btn-gold" href="mailto:javier@javierpoolasesores.com?subject=Quiero%20hablar%20con%20Javier%20Pool%20sobre%20la%20venta%20de%20mi%20empresa">Hablemos sin compromiso</a>
+        <div class="hero-stats">
+          <span style="font-size: 1.05rem; font-weight: 500;">KPMG · IESE · MBA</span><span class="sep">|</span>
+          <span style="font-size: 1.05rem; font-weight: 500;">Empresario</span><span class="sep">|</span>
+          <span style="font-size: 1.05rem; font-weight: 500;">Trabajo a éxito</span>
+        </div>
+      </div>
+      <div class="reveal hero-photo-wrap">
+        <img src="fotobroker.jpg" alt="Javier Pool, asesor en venta de empresas" width="800" height="1000" loading="eager" decoding="async">
+      </div>
+    </div>
+  </header>
+
+  <section class="questions alt" aria-labelledby="questions-title">
+    <div class="container">
+      <h2 id="questions-title" class="section-title reveal">Si estás pensando en vender tu empresa, seguro que te haces estas preguntas</h2>
+      <p class="section-sub reveal">Son las mismas que me hice yo cuando vendí la mía.</p>
+
+      <article class="card-q reveal">
+        <h3>¿Cuánto vale realmente mi empresa?</h3>
+        <p>La valoración de una empresa depende de muchisimos factores. No es tan sencillo como un múltplo del EBITDA</p>
+      </article>
+      <article class="card-q reveal">
+        <h3>¿Cómo busco comprador sin que se enteren mis empleados, clientes y competidores?</h3>
+        <p>La confidencialidad lo es todo. Un rumor puede destruir años de trabajo.</p>
+      </article>
+      <article class="card-q reveal">
+        <h3>¿Me van a engañar en la negociación?</h3>
+        <p>Los compradores profesionales hacen decenas de operaciones al año. Tú solo haces una en tu vida.</p>
+      </article>
+      <article class="card-q reveal">
+        <h3>¿Qué pasa con mis empleados si vendo?</h3>
+        <p>Han crecido contigo y no quieres dejarlos en manos de alguien que no los valore.</p>
+      </article>
+      <article class="card-q reveal">
+        <h3>¿Y si no encuentro comprador y tengo que cerrar?</h3>
+        <p>O peor: ¿y si vendo mal y luego me arrepiento?</p>
+      </article>
+
+      <p class="closing reveal">Para todo esto, hay respuestas.</p>
+      <a class="btn-secondary reveal" href="mailto:javier@javierpoolasesores.com?subject=Quiero%20hablar%20con%20Javier%20Pool%20sobre%20la%20venta%20de%20mi%20empresa">Hablemos sin compromiso</a>
+    </div>
+  </section>
+
+  <section id="quien-soy" class="quien">
+    <div class="container quien-grid">
+      <div class="quien-text reveal">
+        <h2 class="section-title">Mi historia</h2>
+
+        <div class="quien-narrativa">
+          <p>Antes de dedicarme a vender compañías, estuve 20 años al frente de la que yo mismo fundé. Cuando llegó el momento de vender, descubrí lo importante que es tener a alguien que te asesore y represente en el proceso.  Para poder maximizar el valor percibido de tu compañía y proteger tu legado, hay que conocer las reglas del juego y saber cómo piensan los compradores.</p>
+        </div>
+
+        <div class="valor-hub">
+
+          <div class="valor-claim">
+            <p>Te ayudaré a dar este paso con confianza</p>
+          </div>
+
+          <div class="valor-grid">
+
+            <div class="valor-card">
+              <span class="valor-num">01</span>
+              <h3>Soy empresario antes que asesor</h3>
+              <p>Entender una compraventa desde los libros no es lo mismo que haberla vivido. Yo lo he vivido como asesor pero tambien en su día como fundador que se despide de lo que ha sido su vida para 20 años. Esa perspectiva cambia todo.</p>
+            </div>
+
+            <div class="valor-card">
+              <span class="valor-num">02</span>
+              <h3>Accederás a compradores que no están en ningún portal</h3>
+              <p>Se trata de tener alcance a compradores que puedan encajar financiera y estratégicamente, sin comprometer la confidencialidad de la operación.</p>
+            </div>
+
+            <div class="valor-card">
+              <span class="valor-num">03</span>
+              <h3>Maximizaré precio y condiciones de la operación</h3>
+              <p>Conozco las reglas del juego. Sé cómo piensan los compradores, qué criterios aplican y qué palancas mueven el precio y las condiciones a tu favor.</p>
+            </div>
+
+            <div class="valor-card">
+              <span class="valor-num">04</span>
+              <h3>Cobertura fiscal y legal incluida</h3>
+              <p>Trabajo con abogados y asesores fiscales de primer nivel con los que colaboro desde hace más de una década.</p>
+            </div>
+
+            <div class="valor-card valor-card--highlight">
+              <span class="valor-num">05</span>
+              <h3>Trabajo a éxito</h3>
+              <p>Sin retainer. Sin costes fijos. Sin sorpresas. Solo cobro una comisión de éxito del 3% del precio que al que consiga vender tu empresa. Intereses alineados desde el primer día.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="quien-photo reveal photo-placeholder sm" aria-hidden="true"><span class="photo-ph-label">Foto de Javier Pool</span></div>
+    </div>
+  </section>
+
+  <section id="proceso" class="alt">
+    <div class="container">
+      <h2 class="section-title reveal">El proceso, paso a paso</h2>
+      <p class="section-sub reveal">Un proceso profesional, confidencial y orientado a una sola cosa: que obtengas el máximo valor por lo que has construido.</p>
+
+      <div class="timeline">
+        <div class="timeline-step reveal" data-step="1">
+          <h3>Reunión inicial</h3>
+          <p>Me cuentas sobre tu empresa, tu situación y tus objetivos. Sin compromiso y con total confidencialidad. Te explicaré cómo trabajo y decidiremos si encajamos.</p>
+        </div>
+        <div class="timeline-step reveal" data-step="2">
+          <h3>Valoración</h3>
+          <p>Analizamos el valor real de tu empresa y establecemos el rango de precio objetivo.</p>
+        </div>
+        <div class="timeline-step reveal" data-step="3">
+          <h3>Preparación del material</h3>
+          <p>Prepararemos la documentación con la que presentaremos tu compañía lo mejor posible a potenciales compradores.</p>
+        </div>
+        <div class="timeline-step reveal" data-step="4">
+          <h3>Identificación y contactación de compradores</h3>
+          <p>Accedo a mi red de compradores financieros y estratégicos y los contacto de forma completamente confidencial. Tu nombre y el de tu empresa no aparecen hasta que yo decida que tiene sentido.</p>
+        </div>
+        <div class="timeline-step reveal" data-step="5">
+          <h3>Gestión de interesados</h3>
+          <p>Gestiono las preguntas, las reuniones y la relación con los compradores interesados. Tú te mantienes al margen hasta que merece la pena que te impliques.</p>
+        </div>
+        <div class="timeline-step reveal" data-step="6">
+          <h3>Recepción de ofertas</h3>
+          <p>Recibimos ofertas de los interesados, negociamos términos y decidimos con quien seguir avanzando.</p>
+        </div>
+        <div class="timeline-step reveal" data-step="7">
+          <h3>Due Diligence y cierre</h3>
+          <p>Te acompañamos y asesoramos en la Due Diligence, la parte del proceso en el que el comprador contrata a abogados para revisar que no hay sorpresas en la compañía. Estoy a tu lado hasta el día de la firma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="alt">
+    <div class="container">
+      <h2 class="section-title reveal">Recursos para empresarios</h2>
+      <p class="section-sub reveal">Si estás pensando en vender tu empresa, estos artículos pueden ayudarte a entender el proceso.</p>
+      <div class="blog-grid">
+        <article class="blog-card reveal">
+          <p class="meta">5 min de lectura</p>
+          <h3>¿Cuánto vale mi empresa? Cómo se valora una pyme en España</h3>
+          <p class="excerpt">Una guía clara para entender qué miran los compradores reales y por qué el valor en tu cabeza no siempre coincide con el del mercado.</p>
+          <a class="read-more" href="blog.html#cuanto-vale-mi-empresa">Leer más</a>
+        </article>
+        <article class="blog-card reveal">
+          <p class="meta">7 min de lectura</p>
+          <h3>Los 5 errores más comunes al vender una pyme</h3>
+          <p class="excerpt">Errores que se repiten una y otra vez —y cómo evitarlos antes de que cuesten dinero o tiempo.</p>
+          <a class="read-more" href="blog.html#errores-vender-pyme">Leer más</a>
+        </article>
+        <article class="blog-card reveal">
+          <p class="meta">4 min de lectura</p>
+          <h3>¿Es buen momento para vender mi empresa en 2024?</h3>
+          <p class="excerpt">Factores de mercado, ciclo vital del negocio y lo que importa de verdad cuando dudas entre esperar o dar el paso.</p>
+          <a class="read-more" href="blog.html#vender-empresa-jubilacion">Leer más</a>
+        </article>
+      </div>
+      <p class="blog-all reveal"><a href="blog.html">Ver todos los artículos →</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-cta">
+        <a class="btn-gold" href="mailto:javier@javierpoolasesores.com?subject=Quiero%20hablar%20con%20Javier%20Pool%20sobre%20la%20venta%20de%20mi%20empresa">Hablemos sin compromiso</a>
+        <p class="footer-cta-email"><a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a></p>
+      </div>
+      <div class="footer-grid">
+        <div class="footer-logo">
+          <strong>Javier Pool</strong>
+          <span>Asesor en venta de empresas</span>
+        </div>
+        <div class="footer-center">Asesor independiente en venta de empresas · España</div>
+        <div class="footer-right"><a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a></div>
+      </div>
+      <p class="footer-tagline">Vender una empresa bien es posible. Pero no se hace solo.</p>
+    </div>
+    <div class="footer-legal">
+      © 2024 Javier Pool Asesores · <a href="#">Aviso legal</a> · <a href="#">Política de privacidad</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var navWrap = document.getElementById("nav-wrap");
+      var navToggle = document.getElementById("nav-toggle");
+      var navMenu = document.getElementById("nav-menu");
+
+      function closeMenu() {
+        navWrap.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Abrir menú");
+      }
+
+      navToggle.addEventListener("click", function () {
+        var open = !navWrap.classList.contains("is-open");
+        navWrap.classList.toggle("is-open", open);
+        navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        navToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      });
+
+      navMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (window.matchMedia("(max-width: 900px)").matches) closeMenu();
+        });
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      /* FAQ accordion */
+      document.querySelectorAll(".faq-item").forEach(function (item) {
+        var btn = item.querySelector(".faq-question");
+        var answer = item.querySelector(".faq-answer");
+        var inner = answer.querySelector(".faq-answer-inner");
+
+        btn.addEventListener("click", function () {
+          var isOpen = item.classList.contains("is-open");
+          document.querySelectorAll(".faq-item.is-open").forEach(function (other) {
+            if (other !== item) {
+              other.classList.remove("is-open");
+              other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+              other.querySelector(".faq-answer").style.maxHeight = null;
+            }
+          });
+          if (isOpen) {
+            item.classList.remove("is-open");
+            btn.setAttribute("aria-expanded", "false");
+            answer.style.maxHeight = null;
+          } else {
+            item.classList.add("is-open");
+            btn.setAttribute("aria-expanded", "true");
+            answer.style.maxHeight = inner.scrollHeight + "px";
+          }
+        });
+      });
+
+      /* Intersection Observer: reveal */
+      var revealEls = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.05 }
+        );
+        revealEls.forEach(function (el) {
+          obs.observe(el);
+        });
+      } else {
+        revealEls.forEach(function (el) {
+          el.classList.add("is-visible");
+        });
+      }
+
+      window.addEventListener("resize", function () {
+        document.querySelectorAll(".faq-item.is-open .faq-answer").forEach(function (a) {
+          var inner = a.querySelector(".faq-answer-inner");
+          if (inner) a.style.maxHeight = inner.scrollHeight + "px";
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
