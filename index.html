@@ -729,14 +729,13 @@
 
     #quien-soy .quien-layout {
       display: grid;
-      grid-template-columns: 45% 55%;
+      grid-template-columns: 42% 58%;
       align-items: stretch;
+      min-height: 100vh;
     }
 
     #quien-soy .quien-photo-col {
       position: relative;
-      min-height: 600px;
-      max-height: 700px;
       overflow: hidden;
     }
 
@@ -755,9 +754,12 @@
     #quien-soy .quien-photo-img {
       display: block;
       width: 100%;
-      height: 700px;
+      height: 100%;
       object-fit: cover;
-      object-position: center 15%;
+      object-position: center center;
+      position: sticky;
+      top: 0;
+      max-height: 100vh;
     }
 
     #quien-soy .quien-text-col {
