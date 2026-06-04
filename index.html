@@ -723,17 +723,47 @@
     /* --- Mi historia (#quien-soy) --- */
     #quien-soy {
       background: #ffffff;
-      padding: 7rem 0;
+      padding: 0;
+      overflow: hidden;
     }
 
-    #quien-soy .quien-grid {
+    #quien-soy .quien-layout {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      align-items: stretch;
+    }
+
+    #quien-soy .quien-photo-col {
+      position: relative;
+      min-height: 100%;
+    }
+
+    #quien-soy .quien-photo-col::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(28%, 140px);
+      background: linear-gradient(to right, transparent, #ffffff);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    #quien-soy .quien-photo-img {
       display: block;
-      max-width: 720px;
-      margin: 0 auto;
+      width: 100%;
+      height: 100vh;
+      min-height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      position: sticky;
+      top: 0;
     }
 
-    #quien-soy .quien-photo {
-      display: none;
+    #quien-soy .quien-text-col {
+      padding: 5rem 4rem 5rem 4rem;
+      min-width: 0;
     }
 
     #quien-soy .quien-text .section-title {
@@ -926,6 +956,26 @@
 
       #quien-soy .valor-claim p {
         font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #quien-soy .quien-layout {
+        grid-template-columns: 1fr;
+      }
+
+      #quien-soy .quien-photo-col::after {
+        display: none;
+      }
+
+      #quien-soy .quien-photo-img {
+        position: static;
+        height: 380px;
+        min-height: 0;
+      }
+
+      #quien-soy .quien-text-col {
+        padding: 3.5rem 1.75rem 4rem;
       }
     }
 
@@ -1347,33 +1397,6 @@
       line-height: 1;
     }
 
-    /* QUIÉN SOY — esquina decorativa */
-    #quien-soy {
-      position: relative;
-    }
-
-    #quien-soy::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle at top right, rgba(196, 146, 42, 0.05) 0%, transparent 65%);
-      pointer-events: none;
-    }
-
-    /* Línea de entrada a la sección */
-    #quien-soy > .container::before {
-      content: "";
-      display: block;
-      width: 1px;
-      height: 48px;
-      background: linear-gradient(180deg, var(--gold), transparent);
-      margin: 0 auto 3rem;
-      opacity: 0.5;
-    }
-
     /* Separador decorativo entre narrativa y valor-hub */
     .quien-narrativa::after {
       content: "";
@@ -1548,7 +1571,11 @@
   </section>
 
   <section id="quien-soy" class="quien">
-    <div class="container quien-grid">
+    <div class="quien-layout">
+      <div class="quien-photo-col">
+        <img src="fotobroker.jpg" alt="Javier Pool, asesor en venta de empresas" class="quien-photo-img" width="800" height="1200" loading="lazy">
+      </div>
+      <div class="quien-text-col">
       <div class="quien-text reveal">
         <h2 class="section-title">Mi historia</h2>
 
@@ -1598,7 +1625,7 @@
 
         </div>
       </div>
-      <div class="quien-photo reveal photo-placeholder sm" aria-hidden="true"><span class="photo-ph-label">Foto de Javier Pool</span></div>
+      </div>
     </div>
   </section>
 
