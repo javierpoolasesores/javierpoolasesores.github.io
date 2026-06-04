@@ -1252,120 +1252,65 @@
 
     /* --- Footer — navy */
     footer {
-      padding: 5rem 0 3rem;
       background: var(--bg-navy);
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-      color: rgba(255, 255, 255, 0.25);
+      padding: 5rem 0;
     }
 
-    .footer-logo strong { color: #ffffff; }
-    .footer-logo span { color: rgba(255, 255, 255, 0.25); }
-    .footer-center { color: rgba(255, 255, 255, 0.25); }
-    .footer-right a { color: rgba(255, 255, 255, 0.25); }
-    .footer-right a:hover { color: var(--gold); }
-    .footer-tagline { color: rgba(255, 255, 255, 0.2); }
-    .footer-legal {
-      color: rgba(255, 255, 255, 0.2);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-    }
-    .footer-legal a { color: rgba(255, 255, 255, 0.2); }
-    .footer-legal a:hover { color: var(--gold); }
-
-    .footer-tagline {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-style: italic;
-      font-size: 0.95rem;
+    .footer-inner {
       text-align: center;
-      margin: 3rem 0 0;
-      line-height: 1.5;
+      max-width: 720px;
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 700px) {
-      .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .footer-grid > div:first-child { order: 1; }
-    }
-
-    .footer-logo strong {
+    .footer-brand {
       font-family: "Cormorant Garamond", serif;
       font-size: 1.1rem;
-      display: block;
-      margin-bottom: 0.25rem;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin: 0 0 1.25rem;
     }
 
-    .footer-logo span {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
+    .footer-email {
+      margin: 0 0 2.75rem;
     }
 
-    .footer-center {
-      text-align: center;
+    .footer-email a {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: color var(--transition);
     }
 
-    .footer-right {
-      text-align: right;
+    .footer-email a:hover {
+      color: var(--gold);
+      opacity: 1;
     }
 
-    .footer-right a {
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 700px) {
-      .footer-right { text-align: center; }
+    .footer-divider {
+      width: 100%;
+      max-width: 14rem;
+      height: 0;
+      border: none;
+      border-top: 1px solid rgba(196, 146, 42, 0.2);
+      margin: 0 auto 2rem;
     }
 
     .footer-legal {
-      margin-top: 2rem;
-      padding-top: 2rem;
-      text-align: center;
+      margin: 0;
       font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.2);
+      line-height: 1.6;
     }
 
-    .footer-cta {
-      background: transparent;
-      text-align: center;
-      padding-bottom: 3.5rem;
-      margin-bottom: 3rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    .footer-legal a {
+      color: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      transition: color var(--transition);
     }
 
-    .footer-cta-email {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-    }
-
-    .footer-cta-email a {
-      color: rgba(255, 255, 255, 0.25);
-      transition: color 0.25s ease;
-    }
-
-    .footer-cta-email a:hover {
+    .footer-legal a:hover {
       color: var(--gold);
-    }
-
-    .footer-cta .btn-gold {
-      background: transparent;
-      border: 1px solid var(--border-gold);
-      color: var(--gold) !important;
-      letter-spacing: 0.1em;
-      font-size: 0.85rem;
-    }
-
-    .footer-cta .btn-gold:hover {
-      background: var(--gold);
-      color: var(--bg-navy) !important;
-      border-color: var(--gold);
+      opacity: 1;
     }
 
     /* --- Detalles decorativos --- */
@@ -1724,23 +1669,11 @@
   </section>
 
   <footer>
-    <div class="container">
-      <div class="footer-cta">
-        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min">Hablemos sin compromiso</a>
-        <p class="footer-cta-email"><a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a></p>
-      </div>
-      <div class="footer-grid">
-        <div class="footer-logo">
-          <strong>Javier Pool</strong>
-          <span>Asesor en venta de empresas</span>
-        </div>
-        <div class="footer-center">Asesor independiente en venta de empresas · España</div>
-        <div class="footer-right"><a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a></div>
-      </div>
-      <p class="footer-tagline">Vender una empresa bien es posible. Pero no se hace solo.</p>
-    </div>
-    <div class="footer-legal">
-      © 2024 Javier Pool Asesores · <a href="#">Aviso legal</a> · <a href="#">Política de privacidad</a>
+    <div class="container footer-inner">
+      <p class="footer-brand">Javier Pool Asesores</p>
+      <p class="footer-email"><a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a></p>
+      <div class="footer-divider" aria-hidden="true"></div>
+      <p class="footer-legal">© 2026 Javier Pool Asesores · <a href="#">Aviso legal</a> · <a href="#">Política de privacidad</a></p>
     </div>
   </footer>
 
