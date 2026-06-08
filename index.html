@@ -152,7 +152,7 @@
     }
 
     .nav-links a {
-      color: var(--text-muted);
+      color: var(--text);
       font-size: 0.78rem;
       font-weight: 400;
       letter-spacing: 0.12em;
@@ -1313,82 +1313,86 @@
     /* --- Footer — navy */
     footer {
       background: var(--bg-navy);
-      padding: 5rem 0;
+      padding: 5rem 0 2.5rem;
     }
 
-    .footer-inner {
+    .footer-top {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 3rem;
-      max-width: 720px;
-      text-align: left;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
 
-    .footer-logo-col {
+    .footer-col-brand {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
     }
 
-    .footer-logo-col img {
-      width: 360px;
-      height: auto;
-      opacity: 1;
-      display: block;
+    .footer-tagline {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0;
     }
 
-    .footer-brand,
-    .footer-email,
-    .footer-legal {
-      text-align: left;
-    }
-
-    .footer-brand {
+    .footer-name {
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
       font-weight: 600;
       color: #ffffff;
-      letter-spacing: 0.02em;
-      margin: 0 0 1.25rem;
+      letter-spacing: 0.01em;
+      margin: 0;
+      line-height: 1.2;
     }
 
-    .footer-email {
-      margin: 0 0 2.75rem;
-    }
-
-    .footer-email a {
+    .footer-email-link {
+      font-size: 0.88rem;
       color: rgba(255, 255, 255, 0.3);
-      font-size: 0.9rem;
       text-decoration: none;
-      transition: color var(--transition);
+      transition: color 0.3s ease;
+      margin-top: 0.5rem;
     }
 
-    .footer-email a:hover {
+    .footer-email-link:hover {
       color: var(--gold);
       opacity: 1;
     }
 
-    .footer-divider {
-      width: 100%;
-      max-width: 14rem;
-      height: 0;
-      border: none;
-      border-top: 1px solid rgba(196, 146, 42, 0.2);
-      margin: 1.5rem 0;
+    .footer-col-logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .footer-logo-img {
+      width: 120px;
+      height: auto;
+      display: block;
+      opacity: 0.9;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
     }
 
     .footer-legal {
-      margin: 0;
       font-size: 0.75rem;
       color: rgba(255, 255, 255, 0.2);
+      margin: 0;
       line-height: 1.6;
+      white-space: nowrap;
     }
 
     .footer-legal a {
       color: rgba(255, 255, 255, 0.2);
       text-decoration: none;
-      transition: color var(--transition);
+      transition: color 0.3s ease;
     }
 
     .footer-legal a:hover {
@@ -1397,20 +1401,23 @@
     }
 
     @media (max-width: 600px) {
-      .footer-inner {
+      .footer-top {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
       }
 
-      .footer-brand,
-      .footer-email,
-      .footer-legal {
-        text-align: center;
+      .footer-col-brand {
+        align-items: center;
       }
 
-      .footer-logo-col {
+      .footer-col-logo {
         justify-content: center;
-        margin-top: 1.5rem;
+      }
+
+      .footer-legal {
+        white-space: normal;
+        text-align: center;
       }
     }
 
@@ -1741,9 +1748,9 @@
           <a class="read-more" href="blog.html#errores-vender-pyme">Leer más</a>
         </article>
         <article class="blog-card reveal">
-          <p class="meta">4 min de lectura</p>
-          <h3>¿Es buen momento para vender mi empresa en 2024?</h3>
-          <p class="excerpt">Factores de mercado, ciclo vital del negocio y lo que importa de verdad cuando dudas entre esperar o dar el paso.</p>
+          <p class="meta">6 min de lectura</p>
+          <h3>Vender la empresa por jubilación: opciones, plazos y errores que evitar</h3>
+          <p class="excerpt">El escenario más frecuente: empresa sana, sin sucesor familiar claro, y la decisión de vender postergada más de lo conveniente.</p>
           <a class="read-more" href="blog.html#vender-empresa-jubilacion">Leer más</a>
         </article>
       </div>
@@ -1752,16 +1759,18 @@
   </section>
 
   <footer>
-    <div class="container footer-inner">
-      <div>
-        <p class="footer-brand">Javier Pool Asesores</p>
-        <p class="footer-email"><a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a></p>
-        <div class="footer-divider" aria-hidden="true"></div>
-        <p class="footer-legal">© 2026 Javier Pool Asesores · <a href="aviso-legal.html">Aviso legal</a> · <a href="politica-privacidad.html">Política de privacidad</a> · <a href="politica-cookies.html">Cookies</a></p>
+    <div class="container footer-top">
+      <div class="footer-col-brand">
+        <p class="footer-tagline">Expertos en Vender Empresas</p>
+        <p class="footer-name">Javier Pool Asesores</p>
+        <a href="mailto:javier@javierpoolasesores.com" class="footer-email-link">javier@javierpoolasesores.com</a>
       </div>
-      <div class="footer-logo-col">
-        <img src="logo.png" alt="JP">
+      <div class="footer-col-logo">
+        <img src="logo.png" alt="JP" class="footer-logo-img">
       </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="footer-legal">© 2026 Javier Pool Asesores · <a href="aviso-legal.html">Aviso legal</a> · <a href="politica-privacidad.html">Política de privacidad</a> · <a href="politica-cookies.html">Cookies</a></p>
     </div>
   </footer>
 
