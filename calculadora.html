@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JHCN40Y480');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de valoración de empresa | Javier Pool Asesores</title>
+  <meta name="description" content="Descubre el valor orientativo de tu empresa en 2 minutos. Calculadora gratuita y confidencial basada en criterios de compradores profesionales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-navy: #0c1a35;
+      --gold: #c4922a;
+      --text: #0c1a35;
+      --text-body: #3a4a63;
+      --text-muted: #7a8499;
+      --border-light: rgba(12,26,53,0.09);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: #ffffff;
+      color: var(--text-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    .container { width: min(92vw, 1120px); margin: 0 auto; padding: 0 1rem; }
+    .container-narrow { width: min(92vw, 620px); margin: 0 auto; padding: 0 1rem; }
+    .container-result { width: min(92vw, 700px); margin: 0 auto; padding: 0 1rem; }
+
+    /* BLOQUE 1 — Header */
+    .calc-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.25rem 0;
+      text-align: center;
+    }
+
+    .calc-header img {
+      width: 72px;
+      height: auto;
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .calc-header-brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--bg-navy);
+      font-weight: 600;
+    }
+
+    /* BLOQUE 2 — Hero */
+    .calc-hero {
+      background: var(--bg-navy);
+      padding: 5rem 0 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calc-hero-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(196,146,42,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .calc-hero-inner { position: relative; z-index: 1; }
+
+    .calc-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .calc-hero h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .calc-hero-lead {
+      color: rgba(255,255,255,0.55);
+      max-width: 38em;
+      margin: 1rem auto 0;
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .calc-pills {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+
+    .calc-pill {
+      border: 1px solid rgba(196,146,42,0.35);
+      border-radius: 20px;
+      padding: 0.4rem 1rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* BLOQUE 3 — Formulario */
+    .calc-form-section {
+      background: #ffffff;
+      padding: 5rem 0 6rem;
+    }
+
+    .calc-form-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.6rem;
+      color: var(--bg-navy);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .calc-form-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .field-wrap { margin-bottom: 1.75rem; }
+
+    .field-wrap label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .field-wrap input,
+    .field-wrap select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      background: #ffffff;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .field-wrap input:focus,
+    .field-wrap select:focus {
+      border-color: var(--gold);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(196,146,42,0.08);
+    }
+
+    .field-help {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.35rem;
+      display: block;
+    }
+
+    .ebitda-help {
+      background: rgba(196,146,42,0.06);
+      border-left: 2px solid var(--gold);
+      border-radius: 0 4px 4px 0;
+      padding: 0.85rem 1rem;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .calc-submit {
+      width: 100%;
+      margin-top: 0.5rem;
+      background: var(--bg-navy);
+      color: #ffffff;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1.1rem 2rem;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 24px rgba(12,26,53,0.2);
+    }
+
+    .calc-submit:hover {
+      background: var(--gold);
+      box-shadow: 0 8px 32px rgba(196,146,42,0.3);
+      transform: translateY(-1px);
+    }
+
+    .calc-legal {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    /* BLOQUE 4 — Resultados */
+    .calc-result-section {
+      display: none;
+      background: #ffffff;
+      padding: 5rem 0 6rem;
+    }
+
+    .result-badge-wrap { text-align: center; }
+
+    .result-badge {
+      background: rgba(196,146,42,0.1);
+      border: 1px solid rgba(196,146,42,0.3);
+      border-radius: 20px;
+      padding: 0.4rem 1.25rem;
+      font-size: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+
+    #resultado-nombre-empresa {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--bg-navy);
+      text-align: center;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    .result-range {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .result-range-label {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .result-value {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: var(--bg-navy);
+      line-height: 1;
+    }
+
+    .result-dash {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2rem;
+      color: var(--gold);
+      opacity: 0.4;
+    }
+
+    .result-hr {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 2rem 0;
+    }
+
+    .result-notice {
+      border-left: 2px solid var(--gold);
+      padding: 1.25rem 1.5rem;
+      background: rgba(196,146,42,0.04);
+      margin-bottom: 2rem;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .result-notice-title {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .result-notice p {
+      font-size: 0.95rem;
+      color: var(--text-body);
+      line-height: 1.75;
+    }
+
+    .result-notice p + p { margin-top: 0.75rem; }
+
+    .result-cta {
+      background: var(--bg-navy);
+      border-radius: 2px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .result-cta::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+      opacity: 0.6;
+    }
+
+    .result-cta p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .result-cta-sub {
+      color: rgba(255,255,255,0.45) !important;
+      font-size: 0.88rem !important;
+      margin-bottom: 1.75rem !important;
+    }
+
+    .result-cta-btn {
+      background: transparent;
+      border: 1px solid rgba(196,146,42,0.5);
+      color: var(--gold);
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 1rem 2.25rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .result-cta-btn:hover {
+      background: var(--gold);
+      color: var(--bg-navy);
+      border-color: var(--gold);
+      opacity: 1;
+    }
+
+    .result-cta-email {
+      display: block;
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .result-cta-email:hover {
+      color: var(--gold);
+      opacity: 1;
+    }
+
+    /* BLOQUE 5 — Footer */
+    .calc-footer {
+      background: var(--bg-navy);
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .calc-footer a {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .calc-footer a:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <header class="calc-header">
+    <img src="logo.png" alt="Javier Pool Asesores">
+    <p class="calc-header-brand">Javier Pool Asesores</p>
+  </header>
+
+  <section class="calc-hero">
+    <div class="calc-hero-glow" aria-hidden="true"></div>
+    <div class="container calc-hero-inner">
+      <p class="calc-eyebrow">Calculadora gratuita de valoración</p>
+      <h1>Descubre el valor real de tu empresa en 2 minutos</h1>
+      <p class="calc-hero-lead">Introduce los datos de tu empresa y obtén una horquilla de valoración orientativa basada en los mismos criterios que aplican los compradores profesionales. Calculadora 100% gratuita y sin compromiso.</p>
+      <div class="calc-pills">
+        <span class="calc-pill">Sin registro</span>
+        <span class="calc-pill">Resultado inmediato</span>
+        <span class="calc-pill">100% confidencial</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="calc-form-section" id="bloque-formulario">
+    <div class="container-narrow">
+      <h2 class="calc-form-title">Datos de tu empresa</h2>
+      <p class="calc-form-sub">Todos los campos son obligatorios. Tus datos son confidenciales y nunca se comparten con terceros.</p>
+
+      <form id="calc-form" novalidate>
+        <div class="field-wrap">
+          <label for="facturacion_actual">Facturación anual actual (€)</label>
+          <input type="number" id="facturacion_actual" name="facturacion_actual" placeholder="Ej: 2500000" min="0">
+        </div>
+
+        <div class="field-wrap">
+          <label for="facturacion_5anos">Facturación anual hace 5 años (€)</label>
+          <input type="number" id="facturacion_5anos" name="facturacion_5anos" placeholder="Ej: 1800000" min="0">
+        </div>
+
+        <div class="field-wrap">
+          <label for="concentracion_clientes">¿Qué porcentaje de tu facturación proviene de tus 3 principales clientes?</label>
+          <input type="number" id="concentracion_clientes" name="concentracion_clientes" placeholder="Ej: 35" min="0" max="100">
+          <span class="field-help">Escribe solo el número. Ej: si tus 3 principales clientes representan el 35% de la facturación, escribe 35.</span>
+        </div>
+
+        <div class="field-wrap">
+          <label for="ebitda">EBITDA anual aproximado — último ejercicio (€)</label>
+          <input type="number" id="ebitda" name="ebitda" placeholder="Ej: 400000" min="0">
+          <div class="ebitda-help">💡 ¿No sabes tu EBITDA exacto? Es aproximadamente el beneficio de explotación antes de descontar intereses, impuestos y amortizaciones. Una forma rápida: toma el beneficio neto de tu última declaración del Impuesto de Sociedades y súmale los intereses bancarios, los impuestos pagados y las amortizaciones del ejercicio. Si no tienes el dato exacto, una estimación razonable es suficiente.</div>
+        </div>
+
+        <div class="field-wrap">
+          <label for="sector">Sector</label>
+          <select id="sector" name="sector">
+            <option value="" disabled selected>Selecciona el sector de tu empresa</option>
+            <option value="servicios_particulares">Servicios a particulares</option>
+            <option value="servicios_empresas">Servicios a empresas</option>
+            <option value="fabricacion">Fabricación</option>
+            <option value="distribucion">Distribución</option>
+            <option value="despacho_abogados">Despacho de abogados</option>
+            <option value="consultoria">Consultoría</option>
+            <option value="software">Software</option>
+          </select>
+        </div>
+
+        <div class="field-wrap">
+          <label for="ciudad">Ciudad</label>
+          <input type="text" id="ciudad" name="ciudad" placeholder="Ej: Madrid">
+        </div>
+
+        <div class="field-wrap">
+          <label for="empleados">Número de empleados</label>
+          <input type="number" id="empleados" name="empleados" placeholder="Ej: 25" min="1">
+        </div>
+
+        <div class="field-wrap">
+          <label for="ano_fundacion">Año de fundación</label>
+          <input type="number" id="ano_fundacion" name="ano_fundacion" placeholder="Ej: 2005" min="1900" max="2025">
+        </div>
+
+        <div class="field-wrap">
+          <label for="nombre_empresa">Nombre de tu empresa</label>
+          <input type="text" id="nombre_empresa" name="nombre_empresa" placeholder="Ej: Distribuciones García S.L.">
+        </div>
+
+        <div class="field-wrap">
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Carlos García">
+        </div>
+
+        <div class="field-wrap">
+          <label for="telefono">Número de móvil</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="Introduce un número de móvil español válido">
+          <span class="field-help">Javier Pool te llamará personalmente con el análisis detallado de tu empresa.</span>
+        </div>
+
+        <button type="submit" class="calc-submit">Ver la valoración de mi empresa →</button>
+        <p class="calc-legal">Al enviar este formulario aceptas nuestra <a href="politica-privacidad.html">Política de privacidad</a>. Tus datos no se comparten con terceros.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="calc-result-section" id="resultado-panel">
+    <div class="container-result">
+      <div class="result-badge-wrap">
+        <span class="result-badge">Valoración orientativa</span>
+      </div>
+      <span id="resultado-nombre-empresa"></span>
+
+      <div class="result-range">
+        <div style="text-align:center">
+          <span class="result-range-label">Valor mínimo estimado</span>
+          <span id="valor-min" class="result-value"></span>
+        </div>
+        <span class="result-dash">—</span>
+        <div style="text-align:center">
+          <span class="result-range-label">Valor máximo estimado</span>
+          <span id="valor-max" class="result-value"></span>
+        </div>
+      </div>
+
+      <hr class="result-hr">
+
+      <div class="result-notice">
+        <p class="result-notice-title">Antes de interpretar este resultado</p>
+        <p>Esta horquilla es una estimación basada únicamente en el EBITDA declarado y el sector. El precio real de una compraventa se ajusta en función del nivel de deuda financiera neta y la posición de caja de la compañía en el momento de la venta.</p>
+        <p>En la práctica, muchos otros factores afectan significativamente al valor final: la escalabilidad del negocio, la dependencia del propietario, la concentración de clientes, la reputación en el mercado, las necesidades de inversión para crecer, o la solidez del equipo directivo. Todos estos factores pueden mover el precio real —hacia arriba o hacia abajo— de forma muy relevante.</p>
+      </div>
+
+      <hr class="result-hr">
+
+      <div class="result-cta">
+        <p>¿Quiere saber qué factores juegan a su favor y cuáles pueden presionar el precio a la baja en su caso concreto?</p>
+        <p class="result-cta-sub">Javier Pool lleva más de 20 años en el sector. La primera conversación es gratuita y confidencial.</p>
+        <a href="https://calendly.com/javier-javierpoolasesores/30min" class="result-cta-btn">Hablar con Javier Pool sin compromiso →</a>
+        <a href="mailto:javier@javierpoolasesores.com" class="result-cta-email">javier@javierpoolasesores.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="calc-footer">
+    <p>© 2026 Javier Pool Asesores · <a href="aviso-legal.html">Aviso legal</a> · <a href="politica-privacidad.html">Política de privacidad</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('calc-form');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        var fields = form.querySelectorAll('input, select');
+        var firstError = null;
+        var hasError = false;
+
+        fields.forEach(function (field) {
+          var invalid = false;
+          if (field.tagName === 'SELECT') {
+            invalid = !field.value || field.value === '';
+          } else {
+            invalid = !field.value || field.value.trim() === '';
+          }
+
+          if (invalid) {
+            field.style.borderColor = '#e53e3e';
+            if (!firstError) firstError = field;
+            hasError = true;
+          } else {
+            field.style.borderColor = '';
+          }
+        });
+
+        if (hasError) {
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstError.focus();
+          }
+          return;
+        }
+
+        var ebitda = parseFloat(document.getElementById('ebitda').value) || 0;
+        var sector = document.getElementById('sector').value;
+        var minMultiple, maxMultiple;
+
+        if (sector === 'fabricacion') {
+          minMultiple = 4;
+          maxMultiple = 5.5;
+        } else if (sector === 'software') {
+          minMultiple = 5;
+          maxMultiple = 7;
+        } else {
+          minMultiple = 4;
+          maxMultiple = 6;
+        }
+
+        var min = ebitda * minMultiple;
+        var max = ebitda * maxMultiple;
+
+        var fmt = function (n) {
+          return n.toLocaleString('es-ES', { maximumFractionDigits: 0 }) + ' €';
+        };
+
+        try {
+          await fetch('https://formspree.io/f/mgobkagz', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              "_subject": "Nueva valoración: " + document.getElementById('nombre_empresa').value,
+              "Empresa": document.getElementById('nombre_empresa').value,
+              "Nombre": document.getElementById('nombre').value,
+              "Móvil": document.getElementById('telefono').value,
+              "Ciudad": document.getElementById('ciudad').value,
+              "Sector": document.getElementById('sector').value,
+              "Facturación actual": document.getElementById('facturacion_actual').value + " €",
+              "Facturación hace 5 años": document.getElementById('facturacion_5anos').value + " €",
+              "Concentración top 3 clientes": document.getElementById('concentracion_clientes').value + "%",
+              "EBITDA": document.getElementById('ebitda').value + " €",
+              "Empleados": document.getElementById('empleados').value,
+              "Año fundación": document.getElementById('ano_fundacion').value,
+              "Valoración mínima estimada": fmt(min),
+              "Valoración máxima estimada": fmt(max)
+            })
+          });
+        } catch (err) {
+          /* mostrar resultados aunque falle el envío */
+        }
+
+        document.getElementById('bloque-formulario').style.display = 'none';
+        var panel = document.getElementById('resultado-panel');
+        panel.style.display = 'block';
+        document.getElementById('resultado-nombre-empresa').textContent = document.getElementById('nombre_empresa').value;
+        document.getElementById('valor-min').textContent = fmt(min);
+        document.getElementById('valor-max').textContent = fmt(max);
+        panel.scrollIntoView({ behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
