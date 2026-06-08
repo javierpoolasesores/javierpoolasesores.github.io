@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experto en Vender Empresas | Javier Pool Asesores</title>
   <meta name="description" content="¿Estás pensando en vender tu empresa? Yo vendí la mía hace unos años y desde entonces ayudo a otros empresarios a hacerlo. Encontraré a tu comprador ideal y estaré a tu lado defendiendo tus intereses durante todo el proceso. Primera llamada gratuita y sin compromiso.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://javierpoolasesores.com/">
+  <meta property="og:title" content="Experto en Vender Empresas | Javier Pool Asesores">
+  <meta property="og:description" content="Vendí mi empresa tras 20 años al frente. Desde entonces ayudo a otros empresarios a hacerlo bien. Primera llamada gratuita y sin compromiso.">
+  <meta property="og:image" content="https://javierpoolasesores.com/fotobroker.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Experto en Vender Empresas | Javier Pool Asesores">
+  <meta name="twitter:description" content="Vendí mi empresa tras 20 años al frente. Desde entonces ayudo a otros empresarios a hacerlo bien.">
+  <meta name="twitter:image" content="https://javierpoolasesores.com/fotobroker.jpg">
+  <link rel="canonical" href="https://javierpoolasesores.com/">
   <meta name="keywords" content="vender empresa España, asesor venta empresa, compraventa pymes, M&A España, cómo vender mi empresa">
   <meta name="theme-color" content="#0d1117">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1318,11 +1328,32 @@
 
     .footer-top {
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr auto auto;
       align-items: center;
       gap: 3rem;
       padding-bottom: 3rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .footer-col-cta {
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-btn {
+      font-size: 0.78rem;
+      padding: 0.85rem 1.5rem;
+      white-space: nowrap;
+      background: transparent;
+      border: 1px solid rgba(196,146,42,0.45);
+      color: var(--gold) !important;
+      box-shadow: none;
+    }
+
+    .footer-btn:hover {
+      background: var(--gold);
+      color: var(--bg-navy) !important;
+      border-color: var(--gold);
     }
 
     .footer-col-brand {
@@ -1412,6 +1443,10 @@
       }
 
       .footer-col-logo {
+        justify-content: center;
+      }
+
+      .footer-col-cta {
         justify-content: center;
       }
 
@@ -1574,7 +1609,7 @@
         <li><a href="#quien-soy">Mi historia</a></li>
         <li><a href="#proceso">El proceso</a></li>
         <li><a href="#blog">Blog</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </div>
   </div>
@@ -1764,6 +1799,9 @@
         <p class="footer-tagline">Expertos en Vender Empresas</p>
         <p class="footer-name">Javier Pool Asesores</p>
         <a href="mailto:javier@javierpoolasesores.com" class="footer-email-link">javier@javierpoolasesores.com</a>
+      </div>
+      <div class="footer-col-cta">
+        <a href="https://calendly.com/javier-javierpoolasesores/30min" class="btn-gold footer-btn">Hablemos sin compromiso</a>
       </div>
       <div class="footer-col-logo">
         <img src="logo.png" alt="JP" class="footer-logo-img">

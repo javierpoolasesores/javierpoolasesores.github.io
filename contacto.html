@@ -3,14 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Cookies | Javier Pool Asesores</title>
-  <meta name="description" content="Política de cookies de javierpoolasesores.com. Información sobre las cookies utilizadas conforme a la normativa española y europea.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://javierpoolasesores.com/politica-cookies.html">
-  <meta property="og:title" content="Política de Cookies | Javier Pool Asesores">
-  <meta property="og:description" content="Información sobre las cookies utilizadas en javierpoolasesores.com.">
-  <meta property="og:image" content="https://javierpoolasesores.com/fotobroker.jpg">
-  <link rel="canonical" href="https://javierpoolasesores.com/politica-cookies.html">
+  <title>Contacto | Javier Pool Asesores</title>
+  <meta name="description" content="Reserva una llamada gratuita y sin compromiso con Javier Pool Asesores. Primera conversación confidencial sobre la venta de tu empresa.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
@@ -143,6 +137,12 @@
     .nav-links a:hover { color: var(--gold); opacity: 1; }
     .nav-links a:hover::after { transform: scaleX(1); }
 
+    .nav-links a.is-active {
+      color: var(--gold);
+      font-weight: 500;
+      opacity: 1;
+    }
+
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -235,135 +235,87 @@
       z-index: 1;
     }
 
-    .toc-wrap {
-      padding: 4rem 0 3rem;
+    .contact-section {
+      padding: 6rem 0;
       background: #ffffff;
-      position: relative;
     }
 
-    .toc-wrap::before {
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-intro h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      color: var(--bg-navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-intro p {
+      font-family: "DM Sans", sans-serif;
+      font-size: 1.02rem;
+      color: var(--text-body);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-highlight {
+      border-left: 2px solid var(--gold);
+      padding-left: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-highlight p {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--bg-navy);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .contact-card {
+      background: var(--bg-navy);
+      border-radius: 2px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
       content: "";
       position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-light) 50%, transparent);
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+      opacity: 0.6;
     }
 
-    .toc {
-      background: transparent;
-      border: none;
-      border-left: 2px solid var(--gold);
-      border-radius: 0;
-      padding: 0 0 0 2rem;
-    }
-
-    .toc h2 {
-      font-size: 0.7rem;
+    .contact-card-eyebrow {
       font-family: "DM Sans", sans-serif;
+      font-size: 0.65rem;
       font-weight: 500;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    .toc ol { list-style: none; counter-reset: toc; }
-
-    .toc li {
-      counter-increment: toc;
-      margin-bottom: 0.75rem;
-      padding-left: 0;
-      border-left: none;
+    .contact-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.6rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
     }
 
-    .toc a {
-      color: var(--text-body);
-      font-size: 0.95rem;
-      display: block;
-      transition: color var(--transition);
-    }
-
-    .toc a::before {
-      content: counter(toc, decimal-leading-zero) ". ";
-      color: var(--gold);
-      font-size: 0.75rem;
-      font-weight: 500;
-      margin-right: 0.25rem;
-      opacity: 0.7;
-    }
-
-    .toc a:hover { color: var(--bg-navy); opacity: 1; }
-
-    .blog-article {
-      padding: 6rem 0;
-      position: relative;
-      background: #ffffff;
-    }
-
-    .blog-article h1 {
-      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-light);
-      position: relative;
-    }
-
-    .blog-article h1::after {
-      content: "";
-      position: absolute;
-      bottom: -1px; left: 0;
-      width: 48px; height: 2px;
-      background: var(--gold);
-    }
-
-    .blog-article h2 {
-      font-size: 1.5rem;
-      margin: 3rem 0 1rem;
-      color: var(--bg-navy);
-    }
-
-    .blog-article h3 {
-      font-size: 1.2rem;
-      margin: 2rem 0 0.75rem;
-      color: var(--bg-navy);
-    }
-
-    .blog-article p {
-      margin-bottom: 1.25rem;
-      font-size: 1.02rem;
-      color: var(--text-body);
-      line-height: 1.85;
-    }
-
-    .blog-article ul {
-      margin: 1rem 0 1.5rem 0;
-      padding-left: 0;
-      list-style: none;
-    }
-
-    .blog-article li {
-      padding: 0.5rem 0 0.5rem 1.5rem;
-      position: relative;
-      color: var(--text-body);
-      font-size: 1rem;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .blog-article li:last-child { border-bottom: none; }
-
-    .blog-article li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 5px; height: 1px;
-      background: var(--gold);
-    }
-
-    .blog-article strong {
-      color: var(--bg-navy);
-      font-weight: 600;
+    .contact-card-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
     }
 
     .btn-gold {
@@ -389,47 +341,51 @@
       box-shadow: 0 8px 28px rgba(196,146,42,0.3);
     }
 
-    .legal-cta-wrap {
-      padding: 0 0 6rem;
-      background: #ffffff;
-    }
-
-    .article-cta {
-      padding: 2.5rem;
-      background: var(--bg-navy);
-      border-radius: 2px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .article-cta::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
-      opacity: 0.6;
-    }
-
-    .article-cta p {
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.6);
-    }
-
-    .article-cta .btn-gold {
+    .contact-card .btn-gold {
       background: transparent;
       border: 1px solid rgba(196,146,42,0.5);
       color: var(--gold) !important;
       box-shadow: none;
+      width: 100%;
+      text-align: center;
     }
 
-    .article-cta .btn-gold:hover {
+    .contact-card .btn-gold:hover {
       background: var(--gold);
       color: var(--bg-navy) !important;
       border-color: var(--gold);
       box-shadow: 0 8px 28px rgba(196,146,42,0.25);
+    }
+
+    .contact-card hr {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin: 2rem 0;
+    }
+
+    .contact-card-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+      margin: 0;
+    }
+
+    .contact-card-email {
+      color: var(--gold);
+      font-size: 0.95rem;
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .contact-card-email:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     footer {
@@ -512,76 +468,40 @@
         <li><a href="index.html#proceso">El proceso</a></li>
         <li><a href="index.html#faq">FAQ</a></li>
         <li><a href="blog.html">Blog</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="contacto.html" class="is-active" aria-current="page">Contacto</a></li>
       </ul>
     </div>
   </div>
 
   <header class="page-hero">
     <div class="container">
-      <h1>Política de Cookies</h1>
-      <p class="lead">Información sobre las cookies utilizadas en javierpoolasesores.com conforme a la normativa española y europea vigente.</p>
+      <h1>Hablemos</h1>
+      <p class="lead">La primera conversación es gratuita, confidencial y sin ningún compromiso. Cuénteme su situación y vemos juntos si tiene sentido trabajar juntos.</p>
     </div>
   </header>
 
-  <div class="toc-wrap" id="indice">
+  <section class="contact-section">
     <div class="container">
-      <nav class="toc" aria-label="Índice de la política de cookies">
-        <h2>Índice</h2>
-        <ol>
-          <li><a href="#que-es-cookie">¿Qué es una cookie?</a></li>
-          <li><a href="#cookies-utilizadas">Cookies utilizadas en este sitio web</a></li>
-          <li><a href="#desactivar">¿Cómo desactivar o eliminar las cookies?</a></li>
-          <li><a href="#mas-informacion">Más información</a></li>
-          <li><a href="#actualizacion">Fecha de última actualización</a></li>
-        </ol>
-      </nav>
-    </div>
-  </div>
-
-  <article class="blog-article">
-    <div class="container">
-      <h1>Uso de cookies en javierpoolasesores.com</h1>
-
-      <h2 id="que-es-cookie">1. ¿Qué es una cookie?</h2>
-      <p>Una cookie es un pequeño archivo de texto que un sitio web almacena en su dispositivo (ordenador, tablet o teléfono móvil) cuando usted lo visita. Las cookies permiten que el sitio recuerde información sobre su visita, como sus preferencias de idioma o el estado de una sesión, lo que puede facilitar su próxima visita y hacer que el sitio le resulte más útil.</p>
-      <p>Las cookies no son programas que se ejecutan en su equipo ni contienen virus. Pueden ser propias (enviadas desde el dominio que visita) o de terceros (enviadas desde dominios ajenos al sitio que visita, por ejemplo cuando se integran servicios externos).</p>
-
-      <h2 id="cookies-utilizadas">2. Cookies utilizadas en este sitio web</h2>
-
-      <h3>Cookies propias</h3>
-      <p>En <strong>javierpoolasesores.com</strong> utilizamos únicamente <strong>cookies técnicas de sesión</strong> necesarias para el funcionamiento básico del sitio web. Estas cookies permiten, por ejemplo, mantener la navegación entre páginas de forma coherente.</p>
-      <p>En este momento la web utiliza cookies técnicas y las propias del widget de reserva Calendly. Esta política se actualizará si se incorporan nuevas herramientas de análisis o publicidad.</p>
-
-      <h3>Cookies de terceros</h3>
-      <p>Cuando usted accede al enlace de reserva de llamada gestionado por <strong>Calendly</strong> o interactúa con su plataforma desde nuestra web, <strong>Calendly, Inc.</strong> puede instalar cookies propias en su dispositivo. Estas cookies son gestionadas exclusivamente por Calendly y no están bajo nuestro control directo.</p>
-      <p>Las cookies de Calendly pueden ser necesarias para el funcionamiento del widget de reserva, recordar sus preferencias o realizar análisis internos de uso de su plataforma. Puede consultar información detallada sobre el uso de cookies por parte de Calendly en su política de privacidad: <a href="https://calendly.com/pages/privacy" rel="noopener noreferrer">calendly.com/pages/privacy</a>.</p>
-      <h2 id="desactivar">3. ¿Cómo desactivar o eliminar las cookies?</h2>
-      <p>Puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones de su navegador. A continuación encontrará enlaces a las instrucciones de los navegadores más habituales:</p>
-      <ul>
-        <li><strong>Google Chrome:</strong> Configuración → Privacidad y seguridad → Cookies y otros datos de sitios.</li>
-        <li><strong>Mozilla Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio.</li>
-        <li><strong>Safari (macOS/iOS):</strong> Preferencias → Privacidad → Gestionar datos de sitios web.</li>
-        <li><strong>Microsoft Edge:</strong> Configuración → Cookies y permisos del sitio → Administrar y eliminar cookies.</li>
-      </ul>
-      <p>Tenga en cuenta que la desactivación de cookies técnicas puede afectar al correcto funcionamiento de determinadas partes del sitio web. En particular, si bloquea las cookies de Calendly, es posible que no pueda completar correctamente el proceso de reserva de una llamada a través de su plataforma.</p>
-
-      <h2 id="mas-informacion">4. Más información</h2>
-      <p>Para cualquier consulta relacionada con el uso de cookies o el tratamiento de sus datos personales, puede escribirnos a <a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a>.</p>
-      <p>La autoridad de control competente en materia de protección de datos en España es la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" rel="noopener noreferrer">aepd.es</a>). Para información sobre sus derechos en materia de privacidad, consulte también nuestra <a href="politica-privacidad.html">Política de Privacidad</a>.</p>
-
-      <h2 id="actualizacion">5. Fecha de última actualización</h2>
-      <p><strong>Última actualización:</strong> junio de 2026.</p>
-    </div>
-  </article>
-
-  <section class="cta-final" style="background: var(--bg-navy); padding: 5rem 0; text-align: center; position: relative; overflow: hidden;">
-    <div style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(196,146,42,0.07) 0%, transparent 65%); pointer-events: none;"></div>
-    <div class="container" style="position: relative;">
-      <p style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 2.5vw, 2rem); color: #ffffff; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 0.75rem;">¿Tiene alguna pregunta?</p>
-      <p style="color: rgba(255,255,255,0.45); font-size: 1rem; margin-bottom: 2rem;">Estamos a su disposición por email o por teléfono.</p>
-      <a href="https://calendly.com/javier-javierpoolasesores/30min" class="btn-gold" style="display: inline-block; margin-bottom: 1.25rem;">Hablemos sin compromiso</a>
-      <p style="font-size: 0.88rem; margin: 0;"><a href="mailto:javier@javierpoolasesores.com" style="color: rgba(255,255,255,0.3); transition: color 0.3s ease;" onmouseover="this.style.color='#c4922a'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">javier@javierpoolasesores.com</a></p>
+      <div class="contact-grid">
+        <div class="contact-intro">
+          <h2>¿Por dónde empezamos?</h2>
+          <p>El primer paso es una llamada de 30 minutos sin compromiso. Cuénteme brevemente su empresa, su situación y qué le está rondando la cabeza.</p>
+          <p>No hace falta que tenga todo claro. Muchos empresarios llegan a esa primera llamada con más dudas que certezas, y eso está bien. Para eso estoy.</p>
+          <p>Si tras esa conversación tiene sentido seguir, acordamos los próximos pasos. Si no, al menos habrá hablado con alguien que conoce el proceso por dentro.</p>
+          <div class="contact-highlight">
+            <p>Trabajo exclusivamente en el lado vendedor. Mi único objetivo es que usted obtenga el mejor precio y las mejores condiciones posibles.</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <p class="contact-card-eyebrow">Primera llamada</p>
+          <h3>Reserva tu llamada gratuita</h3>
+          <p class="contact-card-desc">Elige el día y la hora que mejor te venga. La llamada dura 30 minutos y es completamente confidencial.</p>
+          <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min">Ver disponibilidad →</a>
+          <hr>
+          <p class="contact-card-label">O escríbenos directamente:</p>
+          <a href="mailto:javier@javierpoolasesores.com" class="contact-card-email">javier@javierpoolasesores.com</a>
+        </div>
+      </div>
     </div>
   </section>
 
