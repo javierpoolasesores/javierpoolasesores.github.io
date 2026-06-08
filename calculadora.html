@@ -674,6 +674,7 @@
 
         document.getElementById('bloque-formulario').style.display = 'none';
         var panel = document.getElementById('resultado-panel');
+        if(typeof gtag==='function'){gtag('event','conversion_calculadora',{'event_category':'conversions','event_label':'submit_calculadora','empresa':document.getElementById('nombre_empresa').value,'sector':document.getElementById('sector').value});}
         panel.style.display = 'block';
         document.getElementById('resultado-nombre-empresa').textContent = document.getElementById('nombre_empresa').value;
         document.getElementById('valor-min').textContent = fmt(min);
