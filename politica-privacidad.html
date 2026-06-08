@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad | Javier Pool Asesores</title>
+  <meta name="description" content="Política de privacidad y protección de datos de Javier Pool Asesores conforme al RGPD y la LOPDGDD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-navy: #0c1a35;
+      --bg-navy-deep: #07111f;
+      --text: #0c1a35;
+      --text-body: #3a4a63;
+      --text-muted: #7a8499;
+      --gold: #c4922a;
+      --gold-dim: rgba(196,146,42,0.12);
+      --border-light: rgba(12,26,53,0.09);
+      --border-gold: rgba(196,146,42,0.3);
+      --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: #ffffff;
+      color: var(--text-body);
+      line-height: 1.8;
+      font-size: 1rem;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--bg-navy);
+      letter-spacing: -0.03em;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity var(--transition);
+    }
+    a:hover { opacity: 0.8; }
+
+    ::selection {
+      background: rgba(196,146,42,0.2);
+      color: var(--bg-navy);
+    }
+
+    .container { width: min(760px, 92vw); margin: 0 auto; }
+    .container.wide { width: min(1120px, 92vw); }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .nav-wrap::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold) 35%, var(--gold) 65%, transparent);
+      opacity: 0.5;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      gap: 1.5rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .nav-logo strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--bg-navy);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-logo span {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      position: relative;
+      transition: color var(--transition);
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -3px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform var(--transition);
+      transform-origin: left;
+    }
+
+    .nav-links a:hover { color: var(--gold); opacity: 1; }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      width: 44px; height: 44px;
+      padding: 10px;
+      background: transparent;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--bg-navy);
+    }
+
+    .nav-toggle span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background: currentColor;
+      transition: transform var(--transition), opacity var(--transition);
+    }
+
+    .nav-wrap.is-open .nav-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .nav-wrap.is-open .nav-toggle span:nth-child(2) { opacity: 0; }
+    .nav-wrap.is-open .nav-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    @media (max-width: 900px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        inset: 0;
+        top: 72px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem 4vw;
+        background: rgba(255,255,255,0.99);
+        border-bottom: 1px solid var(--border-light);
+        gap: 1.25rem;
+        transform: translateY(-120%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
+      }
+      .nav-wrap.is-open .nav-links {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    .page-hero {
+      padding: 6rem 0 5rem;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-navy);
+    }
+
+    .page-hero::before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(196,146,42,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .page-hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(196,146,42,0.3) 50%, transparent);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: #ffffff;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero .lead {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem;
+      max-width: 42em;
+      line-height: 1.85;
+      position: relative;
+      z-index: 1;
+    }
+
+    .toc-wrap {
+      padding: 4rem 0 3rem;
+      background: #ffffff;
+      position: relative;
+    }
+
+    .toc-wrap::before {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-light) 50%, transparent);
+    }
+
+    .toc {
+      background: transparent;
+      border: none;
+      border-left: 2px solid var(--gold);
+      border-radius: 0;
+      padding: 0 0 0 2rem;
+    }
+
+    .toc h2 {
+      font-size: 0.7rem;
+      font-family: "DM Sans", sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .toc ol { list-style: none; counter-reset: toc; }
+
+    .toc li {
+      counter-increment: toc;
+      margin-bottom: 0.75rem;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    .toc a {
+      color: var(--text-body);
+      font-size: 0.95rem;
+      display: block;
+      transition: color var(--transition);
+    }
+
+    .toc a::before {
+      content: counter(toc, decimal-leading-zero) ". ";
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-right: 0.25rem;
+      opacity: 0.7;
+    }
+
+    .toc a:hover { color: var(--bg-navy); opacity: 1; }
+
+    .blog-article {
+      padding: 6rem 0;
+      position: relative;
+      background: #ffffff;
+    }
+
+    .blog-article h1 {
+      font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+    }
+
+    .blog-article h1::after {
+      content: "";
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 48px; height: 2px;
+      background: var(--gold);
+    }
+
+    .blog-article h2 {
+      font-size: 1.5rem;
+      margin: 3rem 0 1rem;
+      color: var(--bg-navy);
+    }
+
+    .blog-article p {
+      margin-bottom: 1.25rem;
+      font-size: 1.02rem;
+      color: var(--text-body);
+      line-height: 1.85;
+    }
+
+    .blog-article ul {
+      margin: 1rem 0 1.5rem 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .blog-article li {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      position: relative;
+      color: var(--text-body);
+      font-size: 1rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .blog-article li:last-child { border-bottom: none; }
+
+    .blog-article li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 5px; height: 1px;
+      background: var(--gold);
+    }
+
+    .blog-article strong {
+      color: var(--bg-navy);
+      font-weight: 600;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--bg-navy);
+      color: #ffffff !important;
+      font-family: "DM Sans", sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+      box-shadow: 0 4px 20px rgba(12,26,53,0.15);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold);
+      color: var(--bg-navy) !important;
+      opacity: 1;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 28px rgba(196,146,42,0.3);
+    }
+
+    .legal-cta-wrap {
+      padding: 0 0 6rem;
+      background: #ffffff;
+    }
+
+    .article-cta {
+      padding: 2.5rem;
+      background: var(--bg-navy);
+      border-radius: 2px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .article-cta::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold) 50%, transparent);
+      opacity: 0.6;
+    }
+
+    .article-cta p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .article-cta .btn-gold {
+      background: transparent;
+      border: 1px solid rgba(196,146,42,0.5);
+      color: var(--gold) !important;
+      box-shadow: none;
+    }
+
+    .article-cta .btn-gold:hover {
+      background: var(--gold);
+      color: var(--bg-navy) !important;
+      border-color: var(--gold);
+      box-shadow: 0 8px 28px rgba(196,146,42,0.25);
+    }
+
+    footer {
+      background: var(--bg-navy);
+      padding: 4rem 0 2.5rem;
+      border-top: none;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+      font-size: 0.88rem;
+      align-items: start;
+    }
+
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr; text-align: center; }
+    }
+
+    .footer-logo strong {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.15rem;
+      color: #ffffff;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .footer-logo span {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-center {
+      color: rgba(255,255,255,0.25);
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    .footer-right { text-align: right; }
+    .footer-right a { color: rgba(255,255,255,0.25); font-size: 0.85rem; }
+    .footer-right a:hover { color: var(--gold); opacity: 1; }
+
+    @media (max-width: 700px) { .footer-right { text-align: center; } }
+
+    .footer-legal {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .footer-legal a { color: rgba(255,255,255,0.2); }
+    .footer-legal a:hover { color: var(--gold); opacity: 1; }
+
+    :focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-wrap" id="nav-wrap">
+    <div class="container wide nav">
+      <a href="index.html" class="nav-logo" aria-label="Javier Pool — Inicio">
+        <strong>Javier Pool</strong>
+        <span>Asesor en venta de empresas</span>
+      </a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html#quien-soy">Quién soy</a></li>
+        <li><a href="index.html#proceso">El proceso</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <header class="page-hero">
+    <div class="container">
+      <h1>Política de Privacidad</h1>
+      <p class="lead">Información sobre el tratamiento de sus datos personales conforme al Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD).</p>
+    </div>
+  </header>
+
+  <div class="toc-wrap" id="indice">
+    <div class="container">
+      <nav class="toc" aria-label="Índice de la política de privacidad">
+        <h2>Índice</h2>
+        <ol>
+          <li><a href="#responsable">Responsable del tratamiento</a></li>
+          <li><a href="#datos">Datos que recabamos y cómo los obtenemos</a></li>
+          <li><a href="#finalidad">Finalidad y base jurídica del tratamiento</a></li>
+          <li><a href="#plazo">Plazo de conservación</a></li>
+          <li><a href="#destinatarios">Destinatarios</a></li>
+          <li><a href="#derechos">Derechos del interesado</a></li>
+          <li><a href="#seguridad">Seguridad</a></li>
+          <li><a href="#modificaciones">Modificaciones</a></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <article class="blog-article">
+    <div class="container">
+      <h1>Tratamiento de datos personales</h1>
+
+      <h2 id="responsable">1. Responsable del tratamiento</h2>
+      <p>El responsable del tratamiento de los datos personales recabados a través del sitio web <strong>javierpoolasesores.com</strong> es:</p>
+      <ul>
+        <li><strong>Denominación social:</strong> POOL SERVICIOS INTEGRALES DE GESTIÓN FINANCIERA S.L.</li>
+        <li><strong>Nombre comercial:</strong> Javier Pool Asesores</li>
+        <li><strong>CIF:</strong> B83701888</li>
+        <li><strong>Domicilio social:</strong> Calle Londres 38, Las Rozas de Madrid, 28232, España</li>
+        <li><strong>Correo electrónico:</strong> <a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a></li>
+      </ul>
+
+      <h2 id="datos">2. Datos que recabamos y cómo los obtenemos</h2>
+      <p>Los datos personales que tratamos proceden exclusivamente de la información que usted nos facilita de forma voluntaria al contactar con nosotros. En concreto:</p>
+      <ul>
+        <li><strong>Reserva de llamada vía Calendly:</strong> cuando utiliza el enlace de reserva integrado en la web, Calendly recopila y nos transmite los datos que usted introduce en su plataforma, que habitualmente incluyen nombre, dirección de correo electrónico, número de teléfono y, en su caso, el nombre de su empresa u otra información que decida aportar.</li>
+        <li><strong>Contacto por correo electrónico:</strong> si nos escribe directamente a <a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a>, tratamos los datos incluidos en su mensaje (dirección de email, nombre y cualquier otra información que nos comunique).</li>
+      </ul>
+      <p>El sitio web <strong>no dispone de formulario de contacto propio</strong>. No recabamos datos de navegación con fines de perfilado ni utilizamos cookies de análisis o publicidad en la fecha de publicación de esta política (consulte nuestra <a href="politica-cookies.html">Política de Cookies</a> para más información).</p>
+
+      <h2 id="finalidad">3. Finalidad y base jurídica del tratamiento</h2>
+      <p>Tratamos sus datos personales con las siguientes finalidades:</p>
+      <ul>
+        <li>Gestionar su solicitud de información o contacto inicial.</li>
+        <li>Concertar y mantener reuniones precontractuales.</li>
+        <li>Evaluar la viabilidad de una posible relación profesional en materia de intermediación y asesoramiento en procesos de compraventa de empresas (M&A/brokerage), actuando exclusivamente en representación del vendedor.</li>
+        <li>Realizar el seguimiento comercial de las consultas recibidas, en su caso.</li>
+        <li>Cumplir con las obligaciones legales que resulten de aplicación.</li>
+      </ul>
+      <p>La base jurídica del tratamiento es:</p>
+      <ul>
+        <li><strong>Ejecución de medidas precontractuales</strong> a petición del interesado (artículo 6.1.b del RGPD), cuando usted solicita información o reserva una llamada con vistas a un posible encargo.</li>
+        <li><strong>Interés legítimo</strong> del responsable (artículo 6.1.f del RGPD) para dar respuesta a las consultas recibidas y realizar un seguimiento comercial razonable de las mismas, siempre respetando sus derechos y libertades fundamentales.</li>
+        <li><strong>Cumplimiento de obligaciones legales</strong> (artículo 6.1.c del RGPD), cuando resulte aplicable.</li>
+      </ul>
+
+      <h2 id="plazo">4. Plazo de conservación</h2>
+      <p>Conservaremos sus datos personales mientras dure la relación precontractual o contractual derivada de su consulta y, una vez finalizada, durante el tiempo necesario para atender posibles responsabilidades legales derivadas del tratamiento.</p>
+      <p>En todo caso, los datos se conservarán durante un <strong>mínimo de cinco (5) años</strong> cuando resulte necesario para el cumplimiento de obligaciones mercantiles, contables y fiscales aplicables a la actividad del responsable, o durante el plazo superior que exija la normativa vigente en cada momento.</p>
+      <p>Transcurridos dichos plazos, los datos serán suprimidos o anonimizados de forma segura.</p>
+
+      <h2 id="destinatarios">5. Destinatarios</h2>
+      <p>Sus datos personales <strong>no se cederán a terceros</strong>, salvo obligación legal o cuando sea estrictamente necesario para la prestación del servicio solicitado.</p>
+      <p>En particular, le informamos de que <strong>Calendly, Inc.</strong> actúa como encargado del tratamiento cuando usted utiliza su plataforma para reservar una llamada. Calendly trata los datos conforme a sus propias condiciones de privacidad y puede almacenar la información en servidores ubicados en los Estados Unidos de América, amparados por las garantías adecuadas previstas en el RGPD para transferencias internacionales (incluyendo, en su caso, cláusulas contractuales tipo u otros mecanismos reconocidos). Puede consultar su política de privacidad en <a href="https://calendly.com/pages/privacy" rel="noopener noreferrer">calendly.com/pages/privacy</a>.</p>
+      <p>No vendemos ni alquilamos datos personales a terceros con fines comerciales.</p>
+
+      <h2 id="derechos">6. Derechos del interesado</h2>
+      <p>Usted tiene derecho a:</p>
+      <ul>
+        <li><strong>Acceso:</strong> conocer si tratamos sus datos y obtener información sobre el tratamiento.</li>
+        <li><strong>Rectificación:</strong> solicitar la corrección de datos inexactos o incompletos.</li>
+        <li><strong>Supresión:</strong> solicitar la eliminación de sus datos cuando concurran los supuestos legalmente previstos.</li>
+        <li><strong>Oposición:</strong> oponerse al tratamiento de sus datos en determinadas circunstancias.</li>
+        <li><strong>Limitación:</strong> solicitar la restricción del tratamiento en los casos previstos por la normativa.</li>
+        <li><strong>Portabilidad:</strong> recibir los datos que nos haya facilitado en un formato estructurado y de uso común, cuando el tratamiento se base en el consentimiento o en un contrato y se efectúe por medios automatizados.</li>
+      </ul>
+      <p>Para ejercer estos derechos, puede dirigirse por escrito a <a href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a>, indicando el derecho que desea ejercer y adjuntando copia de su documento de identidad o documento equivalente que acredite su identidad.</p>
+      <p>Asimismo, tiene derecho a presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" rel="noopener noreferrer">aepd.es</a>) si considera que el tratamiento de sus datos no se ajusta a la normativa vigente.</p>
+
+      <h2 id="seguridad">7. Seguridad</h2>
+      <p>El responsable ha adoptado las medidas técnicas y organizativas razonables y apropiadas para proteger sus datos personales contra la destrucción accidental o ilícita, la pérdida, la alteración, la divulgación o el acceso no autorizado.</p>
+      <p>No obstante, ningún sistema de transmisión o almacenamiento de datos en Internet es completamente seguro. Le recomendamos que no incluya información especialmente sensible en los mensajes que nos envíe por correo electrónico si no es estrictamente necesario.</p>
+
+      <h2 id="modificaciones">8. Modificaciones</h2>
+      <p>El responsable se reserva el derecho a modificar la presente Política de Privacidad para adaptarla a novedades legislativas, jurisprudenciales o a cambios en las prácticas de tratamiento de datos. Cualquier modificación será publicada en esta página con indicación de la fecha de última actualización.</p>
+      <p><strong>Última actualización:</strong> junio de 2026.</p>
+    </div>
+  </article>
+
+  <section class="legal-cta-wrap" aria-label="Contacto">
+    <div class="container">
+      <div class="article-cta">
+        <p>¿Tiene alguna pregunta sobre el tratamiento de sus datos? Escríbanos</p>
+        <a class="btn-gold" href="mailto:javier@javierpoolasesores.com">javier@javierpoolasesores.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-logo">
+        <strong>Javier Pool</strong>
+        <span>Asesor en venta de empresas</span>
+      </div>
+      <div class="footer-center">Asesor independiente en venta de empresas · España</div>
+      <div class="footer-right"><a href="mailto:hola@javierpoolasesores.com">hola@javierpoolasesores.com</a></div>
+    </div>
+    <div class="footer-legal">
+      © 2026 Javier Pool Asesores · <a href="aviso-legal.html">Aviso legal</a> · <a href="politica-privacidad.html">Política de privacidad</a> · <a href="politica-cookies.html">Cookies</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var navWrap = document.getElementById("nav-wrap");
+      var navToggle = document.getElementById("nav-toggle");
+      var navMenu = document.getElementById("nav-menu");
+      if (!navToggle || !navWrap) return;
+      function closeMenu() {
+        navWrap.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Abrir menú");
+      }
+      navToggle.addEventListener("click", function () {
+        var open = !navWrap.classList.contains("is-open");
+        navWrap.classList.toggle("is-open", open);
+        navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        navToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+      });
+      navMenu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          if (window.matchMedia("(max-width: 900px)").matches) closeMenu();
+        });
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeMenu();
+      });
+    })();
+  </script>
+</body>
+</html>
