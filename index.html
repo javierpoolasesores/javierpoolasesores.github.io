@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Analytics — carga condicional por consentimiento -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480"></script>
   <script>
-    function loadGA() {
-      if (window._gaLoaded) return;
-      window._gaLoaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-JHCN40Y480');
-    }
-    if (localStorage.getItem('cookie_consent') === 'accepted') {
-      loadGA();
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JHCN40Y480');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1644,7 +1634,7 @@
         <div class="hero-line" aria-hidden="true"></div>
         <h1>Vender tu empresa es sencillo si confías en quienes saben hacerlo.</h1>
         <p class="lead">Vendí mi compañía tras 20 años al frente y desde entonces ayudo a otros empresarios a hacerlo. Vender bien o vender mal lo cambia todo — y estoy aquí para que esa diferencia juegue a tu favor.</p>
-        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablemos sin compromiso</a>
+        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Hablemos sin compromiso</a>
         <div class="hero-stats">
           <span style="font-size: 1.05rem; font-weight: 500;">KPMG · IESE · MBA</span><span class="sep">|</span>
           <span style="font-size: 1.05rem; font-weight: 500;">Trabajo a éxito</span>
@@ -1688,7 +1678,7 @@
       </article>
 
       <p class="closing reveal">Para todo esto, hay respuestas.</p>
-      <a class="btn-secondary reveal" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablemos sin compromiso</a>
+      <a class="btn-secondary reveal" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Hablemos sin compromiso</a>
     </div>
   </section>
 
@@ -1825,7 +1815,7 @@
         <a href="mailto:javier@javierpoolasesores.com" class="footer-email-link">javier@javierpoolasesores.com</a>
       </div>
       <div class="footer-col-cta">
-        <a href="https://calendly.com/javier-javierpoolasesores/30min" class="btn-gold footer-btn" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablemos sin compromiso</a>
+        <a href="https://calendly.com/javier-javierpoolasesores/30min" class="btn-gold footer-btn" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Hablemos sin compromiso</a>
       </div>
       <div class="footer-col-logo">
         <img src="logo.png" alt="JP" class="footer-logo-img">
@@ -1977,6 +1967,7 @@
 
   btnAccept.addEventListener('click', function() {
     localStorage.setItem('cookie_consent', 'accepted');
+    if(window.gtag){ gtag('config', 'G-JHCN40Y480'); }
     banner.style.display = 'none';
     if (typeof loadGA === 'function') loadGA();
   });

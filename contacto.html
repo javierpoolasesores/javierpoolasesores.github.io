@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Analytics — carga condicional por consentimiento -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480"></script>
   <script>
-    function loadGA() {
-      if (window._gaLoaded) return;
-      window._gaLoaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-JHCN40Y480');
-    }
-    if (localStorage.getItem('cookie_consent') === 'accepted') {
-      loadGA();
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JHCN40Y480');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -520,7 +510,7 @@
           <p class="contact-card-eyebrow">Primera llamada</p>
           <h3>Reserva tu llamada gratuita</h3>
           <p class="contact-card-desc">Elige el día y la hora que mejor te venga.</p>
-          <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Ver disponibilidad →</a>
+          <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Ver disponibilidad →</a>
           <hr>
           <p class="contact-card-label">O escríbenos directamente:</p>
           <a href="mailto:javier@javierpoolasesores.com" class="contact-card-email">javier@javierpoolasesores.com</a>
@@ -624,6 +614,7 @@
 
   btnAccept.addEventListener('click', function() {
     localStorage.setItem('cookie_consent', 'accepted');
+    if(window.gtag){ gtag('config', 'G-JHCN40Y480'); }
     banner.style.display = 'none';
     if (typeof loadGA === 'function') loadGA();
   });

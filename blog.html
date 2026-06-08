@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Analytics — carga condicional por consentimiento -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480"></script>
   <script>
-    function loadGA() {
-      if (window._gaLoaded) return;
-      window._gaLoaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-JHCN40Y480');
-    }
-    if (localStorage.getItem('cookie_consent') === 'accepted') {
-      loadGA();
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JHCN40Y480');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -677,7 +667,7 @@
 
       <div class="article-cta">
         <p>Si quiere entender qué variables juegan a su favor y cuáles pueden presionar el precio a la baja antes de salir al mercado, hablemos.</p>
-        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablar con Javier Pool, experto en M&A</a>
+        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Hablar con Javier Pool, experto en M&A</a>
       </div>
     </div>
   </article>
@@ -717,7 +707,7 @@
 
       <div class="article-cta">
         <p>Si quiere un calendario realista para su caso y saber qué conviene adelantar ya, podemos revisarlo en una primera conversación.</p>
-        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablar con Javier Pool, experto en M&A</a>
+        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Hablar con Javier Pool, experto en M&A</a>
       </div>
     </div>
   </article>
@@ -747,7 +737,7 @@
 
       <div class="article-cta">
         <p>Si está en esa encrucijada y quiere ordenar opciones con números y calendario reales, hablemos con franqueza.</p>
-        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablar con Javier Pool, experto en M&A</a>
+        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Hablar con Javier Pool, experto en M&A</a>
       </div>
     </div>
   </article>
@@ -803,7 +793,7 @@
 
       <div class="article-cta">
         <p>Si está pensando en vender y quiere evitar estos errores desde el principio, la primera conversación es gratuita y confidencial.</p>
-        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="if(typeof gtag==='function'){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablar con Javier Pool, experto en M&A</a>
+        <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" onclick="setTimeout(function(){if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}},200);">Hablar con Javier Pool, experto en M&A</a>
       </div>
     </div>
   </article>
@@ -904,6 +894,7 @@
 
   btnAccept.addEventListener('click', function() {
     localStorage.setItem('cookie_consent', 'accepted');
+    if(window.gtag){ gtag('config', 'G-JHCN40Y480'); }
     banner.style.display = 'none';
     if (typeof loadGA === 'function') loadGA();
   });

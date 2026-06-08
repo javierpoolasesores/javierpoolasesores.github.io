@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google Analytics — carga condicional por consentimiento -->
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480"></script>
   <script>
-    function loadGA() {
-      if (window._gaLoaded) return;
-      window._gaLoaded = true;
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480';
-      document.head.appendChild(s);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', 'G-JHCN40Y480');
-    }
-    if (localStorage.getItem('cookie_consent') === 'accepted') {
-      loadGA();
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JHCN40Y480');
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -674,7 +664,7 @@
 
         document.getElementById('bloque-formulario').style.display = 'none';
         var panel = document.getElementById('resultado-panel');
-        if(typeof gtag==='function'){gtag('event','conversion_calculadora',{'event_category':'conversions','event_label':'submit_calculadora','empresa':document.getElementById('nombre_empresa').value,'sector':document.getElementById('sector').value});}
+        try { if(window.gtag){ gtag('event','conversion_calculadora',{'event_category':'conversions','event_label':'submit_calculadora'}); } } catch(e){}
         panel.style.display = 'block';
         document.getElementById('resultado-nombre-empresa').textContent = document.getElementById('nombre_empresa').value;
         document.getElementById('valor-min').textContent = fmt(min);
@@ -737,6 +727,7 @@
 
   btnAccept.addEventListener('click', function() {
     localStorage.setItem('cookie_consent', 'accepted');
+    if(window.gtag){ gtag('config', 'G-JHCN40Y480'); }
     banner.style.display = 'none';
     if (typeof loadGA === 'function') loadGA();
   });

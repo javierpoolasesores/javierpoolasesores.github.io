@@ -736,6 +736,7 @@
 
   btnAccept.addEventListener('click', function() {
     localStorage.setItem('cookie_consent', 'accepted');
+    if(window.gtag){ gtag('config', 'G-JHCN40Y480'); }
     banner.style.display = 'none';
     if (typeof loadGA === 'function') loadGA();
   });
