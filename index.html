@@ -1734,8 +1734,13 @@
 
   <section id="quien-soy" class="quien">
     <div class="quien-layout">
-      <div class="quien-photo-col">
-        <img src="fotobroker.jpg" alt="Javier Pool" class="quien-photo-img">
+      <div class="quien-photo-col" style="display:flex; flex-direction:column;">
+        <img src="fotobroker.jpg" alt="Javier Pool" class="quien-photo-img" style="flex:1; min-height:0;">
+        <div style="background:var(--bg-navy); padding:2.5rem 2.25rem; flex-shrink:0;">
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; color:#ffffff; line-height:1.3; letter-spacing:-0.02em; margin-bottom:1rem;">Trabajo a éxito</h3>
+          <div style="width:32px; height:1px; background:var(--gold); opacity:0.5; margin-bottom:1rem;"></div>
+          <p style="font-size:0.9rem; color:rgba(255,255,255,0.5); line-height:1.8; margin:0;">Sin retainer. Sin costes fijos. Solo cobro una comisión de éxito del 3% del precio al que consiga vender tu empresa. Intereses alineados desde el primer día.</p>
+        </div>
       </div>
       <div class="quien-text-col">
       <div class="quien-text reveal">
@@ -1776,12 +1781,6 @@
               <span class="valor-num">04</span>
               <h3>Cobertura fiscal y legal incluida</h3>
               <p>Trabajo con abogados y asesores fiscales de primer nivel con los que colaboro desde hace más de una década.</p>
-            </div>
-
-            <div class="valor-card valor-card--highlight">
-              <span class="valor-num">05</span>
-              <h3>Trabajo a éxito</h3>
-              <p>Sin retainer. Sin costes fijos. Solo cobro una comisión de éxito del 3% del precio al que consiga vender tu empresa. Intereses alineados desde el primer día.</p>
             </div>
 
           </div>
