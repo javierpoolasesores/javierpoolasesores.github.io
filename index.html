@@ -761,8 +761,8 @@
 
     #quien-soy .quien-photo-col {
       position: relative;
-      overflow: hidden;
-      aspect-ratio: 3 / 4;
+      overflow: visible;
+      aspect-ratio: unset;
     }
 
     #quien-soy .quien-photo-col::after {
@@ -778,14 +778,14 @@
     }
 
     #quien-soy .quien-photo-img {
-      position: absolute;
-      top: 0;
-      left: 0;
+      position: static;
       width: 100%;
-      height: 100%;
+      height: 600px;
       object-fit: cover;
       object-position: center 25%;
       display: block;
+      flex: 1;
+      min-height: 0;
     }
 
     #quien-soy .quien-text-col {
