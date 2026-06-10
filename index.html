@@ -756,13 +756,15 @@
     #quien-soy .quien-layout {
       display: grid;
       grid-template-columns: 45% 55%;
-      align-items: start;
+      align-items: stretch;
     }
 
     #quien-soy .quien-photo-col {
       position: relative;
       overflow: visible;
       aspect-ratio: unset;
+      height: 100%;
+      min-height: 500px;
     }
 
     #quien-soy .quien-photo-col::after {
