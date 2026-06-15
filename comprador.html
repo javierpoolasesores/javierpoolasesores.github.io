@@ -143,9 +143,16 @@
     }
 
     .calc-submit:disabled {
-      opacity: 0.7;
+      background: var(--border-light);
+      color: var(--text-muted);
       cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .calc-submit:disabled:hover {
+      background: var(--border-light);
       transform: none;
+      box-shadow: none;
     }
 
     .calc-legal {
@@ -200,24 +207,7 @@
       color: rgba(255,255,255,0.55);
       font-size: 0.95rem;
       line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .comprador-intro ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
-
-    .comprador-intro li {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.7);
+      margin-bottom: 0;
     }
 
     .comprador-form-col {
@@ -228,16 +218,9 @@
       justify-content: center;
     }
 
-    .comprador-form-col h2 {
-      font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.6rem;
-      color: var(--bg-navy);
-      margin-bottom: 0.5rem;
-    }
-
-    .comprador-form-col .calc-form-sub {
-      text-align: left;
-      margin-bottom: 2.5rem;
+    .comprador-form-col form {
+      width: 100%;
+      max-width: 480px;
     }
 
     .calc-footer {
@@ -260,8 +243,9 @@
         min-height: auto;
       }
       .comprador-intro {
-        padding: 3rem 1.5rem;
+        padding: 2.5rem 1.5rem 2rem;
         order: 2;
+        justify-content: flex-start;
       }
       .comprador-form-col {
         padding: 3rem 1.5rem;
@@ -286,33 +270,10 @@
     <div class="comprador-intro">
       <p class="calc-eyebrow">Para compradores</p>
       <h1>¿Buscas empresas para adquirir?</h1>
-      <p>Si representas un fondo de inversión, un family office o una empresa en busca de adquisiciones, déjanos tus datos y te tendremos en cuenta para operaciones que encajen con vuestro perfil.</p>
-      <ul>
-        <li>
-          <span style="flex-shrink:0; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6.5" stroke="#c4922a" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#c4922a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          Revisamos cada perfil personalmente
-        </li>
-        <li>
-          <span style="flex-shrink:0; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6.5" stroke="#c4922a" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#c4922a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          100% confidencial
-        </li>
-        <li>
-          <span style="flex-shrink:0; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6.5" stroke="#c4922a" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#c4922a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          Sin compromiso
-        </li>
-      </ul>
+      <p>Rellena el formulario y nos pondremos en contacto contigo.</p>
     </div>
 
     <div class="comprador-form-col">
-      <h2>Cuéntanos sobre vosotros</h2>
-      <p class="calc-form-sub">Todos los campos son obligatorios salvo la página web.</p>
-
       <form id="comprador-form" novalidate>
         <div class="field-wrap">
           <label for="nombre">Tu nombre</label>
@@ -320,7 +281,7 @@
         </div>
 
         <div class="field-wrap">
-          <label for="telefono">Número de móvil</label>
+          <label for="telefono">Teléfono de contacto</label>
           <input type="tel" id="telefono" name="telefono" required>
         </div>
 
@@ -335,7 +296,7 @@
         </div>
 
         <div class="field-wrap">
-          <label for="descripcion">Cuéntanos quiénes sois y qué tipo de empresas buscáis</label>
+          <label for="descripcion">Cuéntanos quiénes sois y qué estáis buscando</label>
           <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
         </div>
 
@@ -358,6 +319,26 @@
     (function () {
       var form = document.getElementById('comprador-form');
       if (!form) return;
+
+      var submitBtn = form.querySelector('.calc-submit');
+      var requiredFields = form.querySelectorAll('#nombre, #telefono, #email, #descripcion');
+
+      function checkFormValidity() {
+        var allFilled = true;
+        requiredFields.forEach(function (field) {
+          if (!field.value || field.value.trim() === '') {
+            allFilled = false;
+          }
+        });
+        submitBtn.disabled = !allFilled;
+      }
+
+      requiredFields.forEach(function (field) {
+        field.addEventListener('input', checkFormValidity);
+      });
+
+      submitBtn.disabled = true;
+      checkFormValidity();
 
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
