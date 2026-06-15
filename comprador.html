@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHCN40Y480"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-JHCN40Y480');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de compradores | Javier Pool Asesores</title>
+  <meta name="description" content="¿Buscas empresas para adquirir? Regístrate como comprador y te tendremos en cuenta para operaciones que encajen con vuestro perfil.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-navy: #0c1a35;
+      --gold: #c4922a;
+      --text: #0c1a35;
+      --text-body: #3a4a63;
+      --text-muted: #7a8499;
+      --border-light: rgba(12,26,53,0.09);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "DM Sans", system-ui, sans-serif;
+      background: #ffffff;
+      color: var(--text-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { opacity: 0.85; }
+
+    .calc-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-light);
+      padding: 1.25rem 0;
+      text-align: center;
+    }
+
+    .calc-header img {
+      width: 72px;
+      height: auto;
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+
+    .calc-header-brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.1rem;
+      color: var(--bg-navy);
+      font-weight: 600;
+    }
+
+    .calc-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .calc-form-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .field-wrap { margin-bottom: 1.75rem; }
+
+    .field-wrap label {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .field-wrap input,
+    .field-wrap select,
+    .field-wrap textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 1rem;
+      color: var(--text);
+      background: #ffffff;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .field-wrap textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.6;
+    }
+
+    .field-wrap input:focus,
+    .field-wrap select:focus,
+    .field-wrap textarea:focus {
+      border-color: var(--gold);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(196,146,42,0.08);
+    }
+
+    .calc-submit {
+      width: 100%;
+      margin-top: 0.5rem;
+      background: var(--bg-navy);
+      color: #ffffff;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1.1rem 2rem;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 24px rgba(12,26,53,0.2);
+    }
+
+    .calc-submit:hover {
+      background: var(--gold);
+      box-shadow: 0 8px 32px rgba(196,146,42,0.3);
+      transform: translateY(-1px);
+    }
+
+    .calc-submit:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .calc-legal {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    .comprador-layout {
+      display: grid;
+      grid-template-columns: 40% 60%;
+      min-height: calc(100vh - 90px);
+    }
+
+    .comprador-intro {
+      background: var(--bg-navy);
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .comprador-intro::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 200px;
+      background: radial-gradient(ellipse at bottom left, rgba(196,146,42,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .comprador-intro .calc-eyebrow {
+      text-align: left;
+    }
+
+    .comprador-intro h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .comprador-intro p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .comprador-intro ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .comprador-intro li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .comprador-form-col {
+      background: #ffffff;
+      padding: 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .comprador-form-col h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.6rem;
+      color: var(--bg-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .comprador-form-col .calc-form-sub {
+      text-align: left;
+      margin-bottom: 2.5rem;
+    }
+
+    .calc-footer {
+      background: var(--bg-navy);
+      padding: 2.5rem 0;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .calc-footer a {
+      color: rgba(255,255,255,0.2);
+    }
+
+    .calc-footer a:hover { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .comprador-layout {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .comprador-intro {
+        padding: 3rem 1.5rem;
+        order: 2;
+      }
+      .comprador-form-col {
+        padding: 3rem 1.5rem;
+        order: 1;
+      }
+    }
+  </style>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+  <header class="calc-header">
+    <img src="logo.png" alt="Javier Pool Asesores">
+    <p class="calc-header-brand">Javier Pool Asesores</p>
+  </header>
+
+  <section class="comprador-layout">
+    <div class="comprador-intro">
+      <p class="calc-eyebrow">Para compradores</p>
+      <h1>¿Buscas empresas para adquirir?</h1>
+      <p>Si representas un fondo de inversión, un family office o una empresa en busca de adquisiciones, déjanos tus datos y te tendremos en cuenta para operaciones que encajen con vuestro perfil.</p>
+      <ul>
+        <li>
+          <span style="flex-shrink:0; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6.5" stroke="#c4922a" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#c4922a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          Revisamos cada perfil personalmente
+        </li>
+        <li>
+          <span style="flex-shrink:0; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6.5" stroke="#c4922a" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#c4922a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          100% confidencial
+        </li>
+        <li>
+          <span style="flex-shrink:0; width:18px; height:18px; display:flex; align-items:center; justify-content:center;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6.5" stroke="#c4922a" stroke-width="1"/><path d="M4 7l2 2 4-4" stroke="#c4922a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          Sin compromiso
+        </li>
+      </ul>
+    </div>
+
+    <div class="comprador-form-col">
+      <h2>Cuéntanos sobre vosotros</h2>
+      <p class="calc-form-sub">Todos los campos son obligatorios salvo la página web.</p>
+
+      <form id="comprador-form" novalidate>
+        <div class="field-wrap">
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="field-wrap">
+          <label for="telefono">Número de móvil</label>
+          <input type="tel" id="telefono" name="telefono" required>
+        </div>
+
+        <div class="field-wrap">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="field-wrap">
+          <label for="pagina_web">Página web (opcional)</label>
+          <input type="text" id="pagina_web" name="pagina_web">
+        </div>
+
+        <div class="field-wrap">
+          <label for="descripcion">Cuéntanos quiénes sois y qué tipo de empresas buscáis</label>
+          <textarea id="descripcion" name="descripcion" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="calc-submit">Enviar</button>
+        <p class="calc-legal">Al enviar este formulario aceptas nuestra <a href="politica-privacidad.html">Política de privacidad</a>. Tus datos no se comparten con terceros.</p>
+      </form>
+
+      <div id="resultado-panel" style="display:none; text-align:center; padding: 2rem 0;">
+        <p style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--bg-navy); margin-bottom:1rem;">Gracias por tu interés.</p>
+        <p style="color:var(--text-muted); font-size:0.97rem;">Hemos recibido tu información. Javier se pondrá en contacto contigo si surge alguna operación que encaje con lo que buscáis.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="calc-footer">
+    <p>© 2026 Javier Pool Asesores · <a href="aviso-legal.html">Aviso legal</a> · <a href="politica-privacidad.html">Política de privacidad</a></p>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('comprador-form');
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        var fields = form.querySelectorAll('input[required], textarea[required]');
+        var firstError = null;
+        var hasError = false;
+
+        fields.forEach(function (field) {
+          if (!field.value || field.value.trim() === '') {
+            field.style.borderColor = '#e53e3e';
+            if (!firstError) firstError = field;
+            hasError = true;
+          } else {
+            field.style.borderColor = '';
+          }
+        });
+
+        if (hasError) {
+          if (firstError) {
+            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            firstError.focus();
+          }
+          return;
+        }
+
+        var submitBtn = form.querySelector('.calc-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+
+        try {
+          await fetch('https://formspree.io/f/xjgdlavb', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              "_subject": "Nuevo comprador: " + document.getElementById('nombre').value,
+              "Nombre": document.getElementById('nombre').value,
+              "Movil": document.getElementById('telefono').value,
+              "Email": document.getElementById('email').value,
+              "Pagina web": document.getElementById('pagina_web').value,
+              "Descripcion": document.getElementById('descripcion').value
+            })
+          });
+        } catch (err) {}
+
+        try {
+          await fetch('https://script.google.com/macros/s/AKfycbyTrZWaTk6IRkxZbSqcVYnznbgyDeyzqyNnt6x56TQ98wW0M-fOzMTjR2JKQ4j7K_KH/exec', {
+            method: 'POST',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              tipo: 'comprador',
+              Nombre: document.getElementById('nombre').value,
+              Movil: document.getElementById('telefono').value,
+              Email: document.getElementById('email').value,
+              PaginaWeb: document.getElementById('pagina_web').value,
+              Descripcion: document.getElementById('descripcion').value
+            })
+          });
+        } catch (err) {}
+
+        form.style.display = 'none';
+        var panel = document.getElementById('resultado-panel');
+        try { if(window.gtag){ gtag('event','conversion_comprador',{'event_category':'conversions','event_label':'submit_comprador'}); } } catch(e){}
+        panel.style.display = 'block';
+        panel.scrollIntoView({ behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+<!-- Banner de cookies -->
+<div id="cookie-banner" style="display:none; position:fixed; bottom:0; left:0; right:0; z-index:9999; background:rgba(12,26,53,0.97); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-top:1px solid rgba(196,146,42,0.25); padding:1.25rem 0;">
+  <div style="width:min(1120px,92vw); margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap;">
+    <div style="flex:1; min-width:260px;">
+      <p style="font-family:'DM Sans',sans-serif; font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.7; margin:0;">
+        Utilizamos cookies propias y de terceros (Google Analytics) para analizar el tráfico de esta web. 
+        <a href="politica-cookies.html" style="color:rgba(196,146,42,0.8); text-decoration:none; white-space:nowrap;">Más información</a>
+      </p>
+    </div>
+    <div style="display:flex; gap:0.75rem; flex-shrink:0; align-items:center;">
+      <button id="cookie-reject" style="font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; padding:0.65rem 1.25rem; background:transparent; border:1px solid rgba(255,255,255,0.15); border-radius:2px; color:rgba(255,255,255,0.4); cursor:pointer; transition:all 0.25s ease; white-space:nowrap;">Rechazar</button>
+      <button id="cookie-accept" style="font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; padding:0.65rem 1.5rem; background:transparent; border:1px solid rgba(196,146,42,0.5); border-radius:2px; color:#c4922a; cursor:pointer; transition:all 0.25s ease; white-space:nowrap;">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var banner = document.getElementById('cookie-banner');
+  var btnAccept = document.getElementById('cookie-accept');
+  var btnReject = document.getElementById('cookie-reject');
+
+  // Hover effects
+  btnAccept.addEventListener('mouseover', function() {
+    this.style.background = '#c4922a';
+    this.style.color = '#0c1a35';
+    this.style.borderColor = '#c4922a';
+  });
+  btnAccept.addEventListener('mouseout', function() {
+    this.style.background = 'transparent';
+    this.style.color = '#c4922a';
+    this.style.borderColor = 'rgba(196,146,42,0.5)';
+  });
+  btnReject.addEventListener('mouseover', function() {
+    this.style.borderColor = 'rgba(255,255,255,0.35)';
+    this.style.color = 'rgba(255,255,255,0.7)';
+  });
+  btnReject.addEventListener('mouseout', function() {
+    this.style.borderColor = 'rgba(255,255,255,0.15)';
+    this.style.color = 'rgba(255,255,255,0.4)';
+  });
+
+  var consent = localStorage.getItem('cookie_consent');
+
+  if (!consent) {
+    // Mostrar banner con pequeño delay para no interrumpir carga
+    setTimeout(function() {
+      banner.style.display = 'block';
+    }, 800);
+  }
+
+  btnAccept.addEventListener('click', function() {
+    localStorage.setItem('cookie_consent', 'accepted');
+    if(window.gtag){ gtag('config', 'G-JHCN40Y480'); }
+    banner.style.display = 'none';
+    if (typeof loadGA === 'function') loadGA();
+  });
+
+  btnReject.addEventListener('click', function() {
+    localStorage.setItem('cookie_consent', 'rejected');
+    banner.style.display = 'none';
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1702,6 +1702,29 @@
         font-size: 0.95rem;
       }
     }
+
+    .nav-cta-comprador {
+      border: 1px solid var(--border-gold);
+      border-radius: 2px;
+      padding: 0.5rem 1rem;
+      color: var(--gold) !important;
+    }
+
+    .nav-cta-comprador::after {
+      display: none;
+    }
+
+    .nav-cta-comprador:hover {
+      background: var(--gold-dim);
+      color: var(--gold) !important;
+    }
+
+    @media (max-width: 900px) {
+      .nav-cta-comprador {
+        border-color: var(--border-gold);
+        align-self: flex-start;
+      }
+    }
   </style>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -1726,6 +1749,7 @@
         <li><a href="#quien-soy">Mi historia</a></li>
         <li><a href="#proceso">Cómo trabajo</a></li>
         <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="comprador.html" class="nav-cta-comprador">Soy comprador</a></li>
       </ul>
     </div>
   </div>
