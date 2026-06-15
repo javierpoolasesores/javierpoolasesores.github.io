@@ -527,7 +527,7 @@
           <input type="tel" id="telefono" name="telefono" placeholder="Introduce un número de móvil español válido">
         </div>
 
-        <button type="submit" class="calc-submit">Ver la valoración de mi empresa →</button>
+        <button type="submit" class="calc-submit">Ver resultados →</button>
         <p class="calc-legal">Al enviar este formulario aceptas nuestra <a href="politica-privacidad.html">Política de privacidad</a>. Tus datos no se comparten con terceros.</p>
       </form>
     </div>
@@ -614,6 +614,10 @@
           }
           return;
         }
+
+        var submitBtn = form.querySelector('.calc-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Calculando...';
 
         var ebitda = parseFloat(document.getElementById('ebitda').value) || 0;
         var sector = document.getElementById('sector').value;
