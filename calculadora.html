@@ -575,6 +575,14 @@
       var form = document.getElementById('calc-form');
       if (!form) return;
 
+      form.querySelectorAll('input[type="number"]').forEach(function (input) {
+        input.addEventListener('wheel', function (e) {
+          if (document.activeElement === input) {
+            e.preventDefault();
+          }
+        }, { passive: false });
+      });
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
