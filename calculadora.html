@@ -523,8 +523,8 @@
         </div>
 
         <div class="field-wrap">
-          <label for="telefono">Número de móvil</label>
-          <input type="tel" id="telefono" name="telefono" placeholder="Introduce un número de móvil español válido">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="Introduce tu correo electrónico">
         </div>
 
         <button type="submit" class="calc-submit">Ver resultados →</button>
@@ -652,7 +652,7 @@
               "_subject": "Nueva valoración: " + document.getElementById('nombre_empresa').value,
               "Empresa": document.getElementById('nombre_empresa').value,
               "Nombre": document.getElementById('nombre').value,
-              "Móvil": document.getElementById('telefono').value,
+              "Email": document.getElementById('email').value,
               "Ciudad": document.getElementById('ciudad').value,
               "Sector": document.getElementById('sector').value,
               "Facturación actual": document.getElementById('facturacion_actual').value + " €",
@@ -677,7 +677,7 @@
             },
             body: JSON.stringify({
               Nombre: document.getElementById('nombre').value,
-              Movil: document.getElementById('telefono').value,
+              Email: document.getElementById('email').value,
               Empresa: document.getElementById('nombre_empresa').value,
               Ciudad: document.getElementById('ciudad').value,
               Sector: document.getElementById('sector').value,
