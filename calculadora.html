@@ -463,12 +463,12 @@
       <form id="calc-form" novalidate>
         <div class="field-wrap">
           <label for="facturacion_actual">Facturación anual actual (€)</label>
-          <input type="number" id="facturacion_actual" name="facturacion_actual" placeholder="Ej: 2500000" min="0">
+          <input type="text" id="facturacion_actual" name="facturacion_actual" inputmode="numeric" placeholder="Ej: 2.500.000" min="0">
         </div>
 
         <div class="field-wrap">
           <label for="facturacion_5anos">Facturación anual hace 5 años (€)</label>
-          <input type="number" id="facturacion_5anos" name="facturacion_5anos" placeholder="Ej: 1800000" min="0">
+          <input type="text" id="facturacion_5anos" name="facturacion_5anos" inputmode="numeric" placeholder="Ej: 1.800.000" min="0">
         </div>
 
         <div class="field-wrap">
@@ -479,7 +479,7 @@
 
         <div class="field-wrap">
           <label for="ebitda">EBITDA anual aproximado — último ejercicio (€)</label>
-          <input type="number" id="ebitda" name="ebitda" placeholder="Ej: 400000" min="0">
+          <input type="text" id="ebitda" name="ebitda" inputmode="numeric" placeholder="Ej: 400.000" min="0">
           <div class="ebitda-help">💡 ¿No sabes tu EBITDA exacto? Es aproximadamente el beneficio de explotación antes de descontar intereses, impuestos y amortizaciones. Una forma rápida: toma el beneficio neto de tu última declaración del Impuesto de Sociedades y súmale los intereses bancarios, los impuestos pagados y las amortizaciones del ejercicio. Si no tienes el dato exacto, una estimación razonable es suficiente.</div>
         </div>
 
@@ -583,6 +583,23 @@
         }, { passive: false });
       });
 
+      ['facturacion_actual', 'facturacion_5anos', 'ebitda'].forEach(function (id) {
+        var input = document.getElementById(id);
+        input.addEventListener('input', function () {
+          var raw = input.value.replace(/\./g, '').replace(/[^\d]/g, '');
+          if (raw === '') {
+            input.value = '';
+            return;
+          }
+          input.value = parseInt(raw, 10).toLocaleString('es-ES');
+        });
+      });
+
+      function getNumericValue(id) {
+        var raw = document.getElementById(id).value.replace(/\./g, '');
+        return raw;
+      }
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
@@ -619,7 +636,7 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Calculando...';
 
-        var ebitda = parseFloat(document.getElementById('ebitda').value) || 0;
+        var ebitda = parseFloat(getNumericValue('ebitda')) || 0;
         var sector = document.getElementById('sector').value;
         var minMultiple, maxMultiple;
 
@@ -655,10 +672,10 @@
               "Email": document.getElementById('email').value,
               "Ciudad": document.getElementById('ciudad').value,
               "Sector": document.getElementById('sector').value,
-              "Facturación actual": document.getElementById('facturacion_actual').value + " €",
-              "Facturación hace 5 años": document.getElementById('facturacion_5anos').value + " €",
+              "Facturación actual": getNumericValue('facturacion_actual') + " €",
+              "Facturación hace 5 años": getNumericValue('facturacion_5anos') + " €",
               "Concentración top 3 clientes": document.getElementById('concentracion_clientes').value + "%",
-              "EBITDA": document.getElementById('ebitda').value + " €",
+              "EBITDA": getNumericValue('ebitda') + " €",
               "Empleados": document.getElementById('empleados').value,
               "Año fundación": document.getElementById('ano_fundacion').value,
               "Valoración mínima estimada": fmt(min),
@@ -682,9 +699,9 @@
               Ciudad: document.getElementById('ciudad').value,
               Sector: document.getElementById('sector').value,
               AnoFundacion: document.getElementById('ano_fundacion').value,
-              Facturacion5anos: document.getElementById('facturacion_5anos').value,
-              FacturacionActual: document.getElementById('facturacion_actual').value,
-              Ebitda: document.getElementById('ebitda').value,
+              Facturacion5anos: getNumericValue('facturacion_5anos'),
+              FacturacionActual: getNumericValue('facturacion_actual'),
+              Ebitda: getNumericValue('ebitda'),
               Empleados: document.getElementById('empleados').value,
               ConcentracionClientes: document.getElementById('concentracion_clientes').value,
               ValoracionMin: fmt(min),
