@@ -657,6 +657,32 @@
           /* mostrar resultados aunque falle el envío */
         }
 
+        try {
+          await fetch('https://script.google.com/macros/s/AKfycbyTrZWaTk6IRkxZbSqcVYnznbgyDeyzqyNnt6x56TQ98wW0M-fOzMTjR2JKQ4j7K_KH/exec', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'text/plain;charset=utf-8'
+            },
+            body: JSON.stringify({
+              Nombre: document.getElementById('nombre').value,
+              Movil: document.getElementById('telefono').value,
+              Empresa: document.getElementById('nombre_empresa').value,
+              Ciudad: document.getElementById('ciudad').value,
+              Sector: document.getElementById('sector').value,
+              AnoFundacion: document.getElementById('ano_fundacion').value,
+              Facturacion5anos: document.getElementById('facturacion_5anos').value,
+              FacturacionActual: document.getElementById('facturacion_actual').value,
+              Ebitda: document.getElementById('ebitda').value,
+              Empleados: document.getElementById('empleados').value,
+              ConcentracionClientes: document.getElementById('concentracion_clientes').value,
+              ValoracionMin: fmt(min),
+              ValoracionMax: fmt(max)
+            })
+          });
+        } catch (err) {
+          /* no bloquear el flujo si falla el envío a Sheets */
+        }
+
         document.getElementById('bloque-formulario').style.display = 'none';
         var panel = document.getElementById('resultado-panel');
         try { if(window.gtag){ gtag('event','conversion_calculadora',{'event_category':'conversions','event_label':'submit_calculadora'}); } } catch(e){}
