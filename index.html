@@ -236,23 +236,26 @@
       .nav-links {
         position: fixed;
         inset: 0;
-        top: 72px;
+        top: 0;
+        z-index: 99;
         flex-direction: column;
         align-items: flex-start;
-        padding: 2rem 1.5rem;
-        margin: 0 auto;
-        max-width: 1120px;
-        background: rgba(255, 255, 255, 0.98);
-        border-bottom: 1px solid var(--border-light);
-        gap: 1.25rem;
-        transform: translateY(-120%);
-        opacity: 0;
+        justify-content: center;
+        padding: 6rem 1.5rem 2rem;
+        margin: 0;
+        max-width: none;
+        background: #ffffff;
+        gap: 1.5rem;
+        transform: translateY(-100%);
+        opacity: 1;
         visibility: hidden;
-        transition: transform var(--transition), opacity var(--transition), visibility var(--transition);
+        transition: transform var(--transition), visibility var(--transition);
+      }
+      .nav-links a {
+        font-size: 1.1rem;
       }
       .nav-wrap.is-open .nav-links {
         transform: translateY(0);
-        opacity: 1;
         visibility: visible;
       }
     }
