@@ -962,6 +962,38 @@
       margin: 0;
     }
 
+    #quien-soy .valor-lista {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    #quien-soy .valor-lista li {
+      position: relative;
+      padding-left: 1.1rem;
+      margin-bottom: 0.55rem;
+    }
+
+    #quien-soy .valor-lista li:last-child {
+      margin-bottom: 0;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    #quien-soy .valor-lista li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65em;
+      width: 6px;
+      height: 1.5px;
+      background: var(--gold);
+      border-radius: 1px;
+    }
+
     #quien-soy .valor-card--highlight {
       grid-column: 1 / -1;
       background: var(--bg-navy);
@@ -1873,8 +1905,13 @@
 
             <div class="valor-card">
               <span class="valor-num">01</span>
-              <h3>Soy empresario antes que asesor</h3>
-              <p>Hay cosas que solo entienden quienes las han vivido. Sé lo que es despedirte de lo que ha sido tu vida durante 20 años y sé lo que hay en juego.</p>
+              <h3>Mi experiencia, a tu servicio</h3>
+              <ul class="valor-lista">
+                <li>Director de Administración y Finanzas en importantes filiales de multinacionales</li>
+                <li>Formé parte de una compañía que adquirió más de 400 empresas en Europa</li>
+                <li>Participé en la mayor adquisición de una empresa americana por parte de una francesa</li>
+                <li>Fundé y construí mi propia empresa durante 20 años — y la vendí</li>
+              </ul>
             </div>
 
             <div class="valor-card">
