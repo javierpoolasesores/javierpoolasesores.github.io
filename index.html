@@ -813,14 +813,19 @@
     #quien-soy .quien-layout {
       display: grid;
       grid-template-columns: 45% 55%;
+      grid-template-rows: auto auto;
       align-items: stretch;
     }
 
     #quien-soy .quien-photo-col {
       position: relative;
       overflow: hidden;
-      min-height: 100%;
+      grid-column: 1;
+      grid-row: 1;
+      align-self: stretch;
       display: flex;
+      flex-direction: column;
+      background: #ffffff;
     }
 
     #quien-soy .quien-photo-col::after {
@@ -838,19 +843,27 @@
     #quien-soy .quien-photo-img {
       width: 100%;
       height: 100%;
-      min-height: 560px;
-      flex: 1;
+      min-height: 0;
+      flex: 1 1 auto;
       object-fit: cover;
       object-position: center 22%;
       display: block;
     }
 
     #quien-soy .quien-text-col {
-      padding: 4.5rem 3.75rem 4.5rem 3.5rem;
+      grid-column: 2;
+      grid-row: 1;
+      padding: 4.5rem 3.75rem 3.5rem 3.5rem;
       min-width: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      align-self: start;
+    }
+
+    #quien-soy .quien-bottom {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 0 0 4.5rem;
     }
 
     #quien-soy .quien-intro {
@@ -922,13 +935,21 @@
       display: none;
     }
 
-    /* VALOR HUB */
-    #quien-soy .valor-hub {
-      margin-top: 2.75rem;
+    /* VALOR — claim + grid a ancho completo */
+    #quien-soy .valor-claim {
+      text-align: center;
+      margin: 3.25rem auto 2.75rem;
+      max-width: 40rem;
     }
 
-    #quien-soy .valor-claim {
-      margin-bottom: 2.75rem;
+    #quien-soy .valor-claim::before {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.55;
+      margin: 0 auto 1.5rem;
     }
 
     #quien-soy .valor-claim p {
@@ -936,24 +957,24 @@
       font-size: clamp(1.85rem, 3.2vw, 2.4rem);
       font-weight: 600;
       color: var(--bg-navy);
-      line-height: 1.2;
+      line-height: 1.25;
       letter-spacing: -0.035em;
-      padding-left: 1.75rem;
-      border-left: 3px solid var(--gold);
       margin: 0;
-      max-width: 28rem;
+      padding: 0;
+      border: none;
+      max-width: none;
     }
 
     #quien-soy .valor-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       gap: 0;
       border-top: 1px solid var(--border-light);
       border-left: 1px solid var(--border-light);
     }
 
     #quien-soy .valor-card {
-      padding: 2.35rem 2rem;
+      padding: 2rem 1.35rem;
       border-right: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
       background: #ffffff;
@@ -995,7 +1016,7 @@
 
     #quien-soy .valor-card h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.25rem;
+      font-size: 1.12rem;
       font-weight: 600;
       color: var(--bg-navy);
       line-height: 1.3;
@@ -1044,86 +1065,14 @@
       border-radius: 50%;
     }
 
-    #quien-soy .valor-card--navy {
-      background: var(--bg-navy);
-      border-right: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    #quien-soy .valor-card--navy::before {
-      opacity: 0.35;
-    }
-
-    #quien-soy .valor-card--navy:hover {
-      background: var(--bg-navy);
-    }
-
-    #quien-soy .valor-card--navy:hover::before {
-      opacity: 1;
-    }
-
-    #quien-soy .valor-card--navy h3 {
-      color: #ffffff;
-      margin-bottom: 0;
-    }
-
-    #quien-soy .valor-card--navy h3::after {
-      content: "";
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.5;
-      margin-top: 1rem;
-    }
-
-    #quien-soy .valor-card--navy p {
-      color: rgba(255, 255, 255, 0.5);
-      margin-top: 1rem;
-    }
-
-    #quien-soy .valor-card--highlight {
-      grid-column: 1 / -1;
-      background: var(--bg-navy);
-      border-right: 1px solid rgba(255, 255, 255, 0.06);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 3rem;
-      align-items: start;
-      padding: 2.75rem 2.25rem;
-    }
-
-    #quien-soy .valor-card--highlight::before {
-      display: none;
-    }
-
-    #quien-soy .valor-card--highlight:hover {
-      background: var(--bg-navy);
-    }
-
-    #quien-soy .valor-card--highlight .valor-num {
-      grid-column: 1 / -1;
-      color: rgba(196, 146, 42, 0.6);
-      opacity: 1;
-    }
-
     #quien-soy .valor-num {
       display: none;
     }
 
-    #quien-soy .valor-card--highlight h3 {
-      color: #ffffff;
-      font-size: 1.35rem;
-      margin-bottom: 0;
-      align-self: center;
-    }
-
-    #quien-soy .valor-card--highlight p {
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 0.9rem;
-      border-left: 1px solid rgba(196, 146, 42, 0.3);
-      padding-left: 2rem;
+    @media (max-width: 900px) {
+      #quien-soy .valor-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 700px) {
@@ -1137,25 +1086,8 @@
         padding: 2rem 0;
       }
 
-      #quien-soy .valor-card--highlight {
-        grid-column: 1;
-        grid-template-columns: 1fr;
-        padding: 2rem 0;
-        border-right: none;
-        gap: 1rem;
-      }
-
-      #quien-soy .valor-card--highlight p {
-        border-left: none;
-        padding-left: 0;
-        border-top: 1px solid rgba(196, 146, 42, 0.25);
-        padding-top: 1rem;
-      }
-
-      #quien-soy .valor-card--navy {
-        padding: 2rem 1.5rem;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      #quien-soy .valor-card h3 {
+        font-size: 1.2rem;
       }
 
       #quien-soy .quien-experiencia {
@@ -1168,46 +1100,68 @@
         padding-left: 1.25rem;
       }
 
-      #quien-soy .valor-hub {
-        margin-top: 2.25rem;
+      #quien-soy .valor-claim {
+        margin: 2.5rem auto 2.25rem;
+      }
+
+      #quien-soy .valor-claim::before {
+        width: 40px;
+        margin-bottom: 1.25rem;
       }
 
       #quien-soy .valor-claim p {
         font-size: 1.55rem;
-        padding-left: 1.25rem;
-        border-left-width: 2px;
       }
 
-      #quien-soy .valor-claim {
-        margin-bottom: 2.25rem;
+      #quien-soy .quien-bottom {
+        padding-bottom: 3.5rem;
       }
     }
 
     @media (max-width: 768px) {
       #quien-soy .quien-layout {
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      #quien-soy .quien-photo-col {
+        grid-column: 1;
+        grid-row: 1;
+        min-height: auto;
+        display: block;
+        align-self: auto;
       }
 
       #quien-soy .quien-photo-col::after {
         display: none;
       }
 
-      #quien-soy .quien-photo-col {
-        min-height: auto;
-        display: block;
-      }
-
       #quien-soy .quien-photo-img {
-        height: 460px;
-        min-height: 460px;
+        height: auto !important;
+        min-height: unset;
+        max-height: 52vh;
+        aspect-ratio: 5 / 4;
         width: 100%;
         object-fit: cover;
-        object-position: center 20%;
+        object-position: center 18%;
+        flex: none;
       }
 
       #quien-soy .quien-text-col {
-        padding: 3rem 1.75rem 3.5rem;
-        justify-content: flex-start;
+        grid-column: 1;
+        grid-row: 2;
+        padding: 2.75rem 1.75rem 0;
+      }
+
+      #quien-soy .quien-bottom {
+        grid-column: 1;
+        grid-row: 3;
+        width: min(1120px, 92vw);
+        padding: 0 0 3.5rem;
+      }
+
+      #quien-soy .valor-claim {
+        margin-top: 2.5rem;
       }
     }
 
@@ -1865,30 +1819,6 @@
       .hero {
         padding-top: 2.5rem;
       }
-
-      #quien-soy .valor-card--highlight {
-        grid-template-columns: 1fr;
-        grid-column: 1;
-        background: transparent;
-        border: none;
-        border-left: 2px solid var(--gold);
-        padding: 1.75rem 0 1.75rem 1.5rem;
-        gap: 0.75rem;
-      }
-
-      #quien-soy .valor-card--highlight h3 {
-        color: var(--bg-navy);
-        font-size: 1.5rem;
-      }
-
-      #quien-soy .valor-card--highlight p {
-        color: var(--text-muted);
-        border-left: none;
-        border-top: none;
-        padding-left: 0;
-        padding-top: 0;
-        font-size: 0.95rem;
-      }
     }
 
     .nav-cta-comprador {
@@ -2024,36 +1954,36 @@
             <li>Participé en la mayor adquisición de una empresa americana por parte de una francesa</li>
             <li>Fundé y construí mi propia empresa durante 20 años — y la vendí</li>
           </ul>
+        </div>
+      </div>
 
-          <div class="valor-hub">
-            <div class="valor-claim">
-              <p>Te ayudaré a dar este paso con confianza</p>
-            </div>
+      <div class="quien-bottom">
+        <div class="valor-claim reveal">
+          <p>Te ayudaré a dar este paso con confianza</p>
+        </div>
 
-            <div class="valor-grid">
+        <div class="valor-grid">
 
-              <div class="valor-card">
-                <h3>Maximizaré precio y condiciones de la operación</h3>
-                <p>Conozco las reglas del juego. Sé cómo piensan los compradores, qué criterios aplican y qué palancas mueven el precio y las condiciones a tu favor.</p>
-              </div>
-
-              <div class="valor-card">
-                <h3>Accederás a compradores que no están en ningún portal</h3>
-                <p>Se trata de tener alcance a compradores que puedan encajar financiera y estratégicamente, sin comprometer la confidencialidad de la operación.</p>
-              </div>
-
-              <div class="valor-card valor-card--navy">
-                <h3>Trabajo a éxito</h3>
-                <p>Sin retainer. Sin costes fijos. Cobro una comisión de éxito del 3% del precio al que consiga vender tu empresa. Intereses alineados desde el primer día.</p>
-              </div>
-
-              <div class="valor-card">
-                <h3>Cobertura fiscal y legal incluida</h3>
-                <p>Soy Censor Jurado de Cuentas y colaboramos con firmas legales de primer nivel para dar un servicio integral.</p>
-              </div>
-
-            </div>
+          <div class="valor-card">
+            <h3>Maximizaré precio y condiciones de la operación</h3>
+            <p>Conozco las reglas del juego. Sé cómo piensan los compradores, qué criterios aplican y qué palancas mueven el precio y las condiciones a tu favor.</p>
           </div>
+
+          <div class="valor-card">
+            <h3>Accederás a compradores que no están en ningún portal</h3>
+            <p>Se trata de tener alcance a compradores que puedan encajar financiera y estratégicamente, sin comprometer la confidencialidad de la operación.</p>
+          </div>
+
+          <div class="valor-card">
+            <h3>Trabajo a éxito</h3>
+            <p>Sin retainer. Sin costes fijos. Cobro una comisión de éxito del 3% del precio al que consiga vender tu empresa. Intereses alineados desde el primer día.</p>
+          </div>
+
+          <div class="valor-card">
+            <h3>Cobertura fiscal y legal incluida</h3>
+            <p>Soy Censor Jurado de Cuentas y colaboramos con firmas legales de primer nivel para dar un servicio integral.</p>
+          </div>
+
         </div>
       </div>
     </div>
