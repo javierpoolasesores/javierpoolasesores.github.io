@@ -848,30 +848,43 @@
     }
 
     #quien-soy .quien-text-col {
-      padding: 5rem 4rem 5rem 4rem;
+      padding: 4.5rem 3.75rem 4.5rem 3.5rem;
       min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    #quien-soy .quien-intro {
+      margin-bottom: 0;
+    }
+
+    #quien-soy .quien-eyebrow {
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin: 0;
     }
 
     #quien-soy .quien-text .section-title {
       font-size: clamp(2.4rem, 4vw, 3.2rem);
       color: var(--bg-navy);
       text-align: left;
-      margin-bottom: 2rem;
+      margin-bottom: 0.75rem;
       letter-spacing: -0.04em;
     }
 
-    #quien-soy .quien-narrativa {
-      position: relative;
-      padding-left: 1.75rem;
-      border-left: 2px solid var(--gold);
-      margin-bottom: 4rem;
-    }
-
-    #quien-soy .quien-narrativa p {
-      font-size: 1.1rem;
-      line-height: 1.95;
-      color: var(--text-body);
-      margin-bottom: 0;
+    #quien-soy .quien-intro::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.45;
+      margin-top: 1.75rem;
     }
 
     #quien-soy .quien-aporte,
@@ -885,23 +898,24 @@
 
     /* VALOR HUB */
     #quien-soy .valor-hub {
-      margin-top: 4.5rem;
+      margin-top: 2.25rem;
     }
 
     #quien-soy .valor-claim {
-      margin-bottom: 3rem;
+      margin-bottom: 2.75rem;
     }
 
     #quien-soy .valor-claim p {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+      font-size: clamp(1.85rem, 3.2vw, 2.4rem);
       font-weight: 600;
       color: var(--bg-navy);
-      line-height: 1.25;
-      letter-spacing: -0.03em;
-      padding-left: 1.5rem;
-      border-left: 2px solid var(--gold);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+      padding-left: 1.75rem;
+      border-left: 3px solid var(--gold);
       margin: 0;
+      max-width: 28rem;
     }
 
     #quien-soy .valor-grid {
@@ -913,7 +927,7 @@
     }
 
     #quien-soy .valor-card {
-      padding: 2.5rem 2.25rem;
+      padding: 2.35rem 2rem;
       border-right: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
       background: #ffffff;
@@ -1075,7 +1089,22 @@
       }
 
       #quien-soy .valor-claim p {
-        font-size: 1.4rem;
+        font-size: 1.55rem;
+        padding-left: 1.25rem;
+        border-left-width: 2px;
+      }
+
+      #quien-soy .valor-claim {
+        margin-bottom: 2.25rem;
+      }
+
+      #quien-soy .valor-hub {
+        margin-top: 1.75rem;
+      }
+
+      #quien-soy .quien-intro::after {
+        margin-top: 1.5rem;
+        width: 40px;
       }
     }
 
@@ -1097,13 +1126,8 @@
       }
 
       #quien-soy .quien-text-col {
-        padding: 3.5rem 1.75rem 4rem;
-      }
-    }
-
-    @media (max-width: 700px) {
-      #quien-soy .quien-narrativa {
-        padding-left: 1.25rem;
+        padding: 3rem 1.75rem 3.5rem;
+        justify-content: flex-start;
       }
     }
 
@@ -1619,17 +1643,6 @@
       line-height: 1;
     }
 
-    /* Separador decorativo entre narrativa y valor-hub */
-    .quien-narrativa::after {
-      content: "";
-      display: block;
-      width: 48px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.4;
-      margin-top: 2.5rem;
-    }
-
     /* Detalle en cada valor-card: punto dorado en esquina */
     .valor-card::after {
       content: "";
@@ -1924,21 +1937,19 @@
         </div>
       </div>
       <div class="quien-text-col">
-      <div class="quien-text reveal">
-        <h2 class="section-title">Mi historia</h2>
-        <p style="font-family:'DM Sans',sans-serif; font-size:0.72rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:2rem;">KPMG · IESE · MBA · Empresario</p>
-
-        <div class="quien-narrativa">
-          <p>Antes de dedicarme a vender compañías, estuve 20 años al frente de la que yo mismo fundé. Cuando llegó el momento de vender, descubrí lo importante que es tener a alguien que te asesore y represente en el proceso.  Para poder maximizar el valor percibido de tu compañía y proteger tu legado, hay que conocer las reglas del juego y saber cómo piensan los compradores.</p>
-        </div>
-
-        <div class="valor-hub">
-
-          <div class="valor-claim">
-            <p>Te ayudaré a dar este paso con confianza</p>
+        <div class="quien-text reveal">
+          <div class="quien-intro">
+            <h2 class="section-title">Mi historia</h2>
+            <p class="quien-eyebrow">KPMG · IESE · MBA · Empresario</p>
           </div>
 
-          <div class="valor-grid">
+          <div class="valor-hub">
+
+            <div class="valor-claim">
+              <p>Te ayudaré a dar este paso con confianza</p>
+            </div>
+
+            <div class="valor-grid">
 
             <div class="valor-card">
               <span class="valor-num">01</span>
@@ -1971,8 +1982,8 @@
 
           </div>
 
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </section>
@@ -2005,7 +2016,7 @@
         </div>
         <div class="timeline-step reveal" data-step="6">
           <h3>Recepción de ofertas</h3>
-          <p>Recibimos ofertas de los interesados, negociamos términos y decidimos con quien seguir avanzando.</p>
+          <p>Evaluamos las ofertas recibidas, negociamos términos y decidimos con quien seguir avanzando.</p>
         </div>
         <div class="timeline-step reveal" data-step="7">
           <h3>Due Diligence y cierre</h3>
