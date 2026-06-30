@@ -818,10 +818,9 @@
 
     #quien-soy .quien-photo-col {
       position: relative;
-      overflow: visible;
-      aspect-ratio: unset;
-      height: 100%;
-      min-height: 500px;
+      overflow: hidden;
+      min-height: 100%;
+      display: flex;
     }
 
     #quien-soy .quien-photo-col::after {
@@ -837,14 +836,13 @@
     }
 
     #quien-soy .quien-photo-img {
-      position: static;
       width: 100%;
-      height: 600px;
-      object-fit: cover;
-      object-position: center 25%;
-      display: block;
+      height: 100%;
+      min-height: 560px;
       flex: 1;
-      min-height: 0;
+      object-fit: cover;
+      object-position: center 22%;
+      display: block;
     }
 
     #quien-soy .quien-text-col {
@@ -878,13 +876,41 @@
     }
 
     #quien-soy .quien-intro::after {
+      display: none;
+    }
+
+    #quien-soy .quien-experiencia {
+      list-style: none;
+      padding: 0;
+      margin: 1.75rem 0 0;
+      max-width: 36rem;
+      font-family: "DM Sans", system-ui, sans-serif;
+      font-size: clamp(0.97rem, 1.45vw, 1.06rem);
+      line-height: 1.85;
+      color: var(--text-body);
+      font-weight: 400;
+    }
+
+    #quien-soy .quien-experiencia li {
+      position: relative;
+      padding-left: 1.35rem;
+      margin-bottom: 1.15rem;
+      color: var(--text-body);
+    }
+
+    #quien-soy .quien-experiencia li:last-child {
+      margin-bottom: 0;
+    }
+
+    #quien-soy .quien-experiencia li::before {
       content: "";
-      display: block;
-      width: 48px;
-      height: 1px;
+      position: absolute;
+      left: 0;
+      top: 0.62em;
+      width: 5px;
+      height: 5px;
       background: var(--gold);
-      opacity: 0.45;
-      margin-top: 1.75rem;
+      border-radius: 50%;
     }
 
     #quien-soy .quien-aporte,
@@ -898,7 +924,7 @@
 
     /* VALOR HUB */
     #quien-soy .valor-hub {
-      margin-top: 2.25rem;
+      margin-top: 2.75rem;
     }
 
     #quien-soy .valor-claim {
@@ -1018,6 +1044,44 @@
       border-radius: 50%;
     }
 
+    #quien-soy .valor-card--navy {
+      background: var(--bg-navy);
+      border-right: 1px solid rgba(255, 255, 255, 0.06);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    #quien-soy .valor-card--navy::before {
+      opacity: 0.35;
+    }
+
+    #quien-soy .valor-card--navy:hover {
+      background: var(--bg-navy);
+    }
+
+    #quien-soy .valor-card--navy:hover::before {
+      opacity: 1;
+    }
+
+    #quien-soy .valor-card--navy h3 {
+      color: #ffffff;
+      margin-bottom: 0;
+    }
+
+    #quien-soy .valor-card--navy h3::after {
+      content: "";
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+      margin-top: 1rem;
+    }
+
+    #quien-soy .valor-card--navy p {
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 1rem;
+    }
+
     #quien-soy .valor-card--highlight {
       grid-column: 1 / -1;
       background: var(--bg-navy);
@@ -1088,6 +1152,26 @@
         padding-top: 1rem;
       }
 
+      #quien-soy .valor-card--navy {
+        padding: 2rem 1.5rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      #quien-soy .quien-experiencia {
+        margin-top: 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      #quien-soy .quien-experiencia li {
+        margin-bottom: 1rem;
+        padding-left: 1.25rem;
+      }
+
+      #quien-soy .valor-hub {
+        margin-top: 2.25rem;
+      }
+
       #quien-soy .valor-claim p {
         font-size: 1.55rem;
         padding-left: 1.25rem;
@@ -1096,15 +1180,6 @@
 
       #quien-soy .valor-claim {
         margin-bottom: 2.25rem;
-      }
-
-      #quien-soy .valor-hub {
-        margin-top: 1.75rem;
-      }
-
-      #quien-soy .quien-intro::after {
-        margin-top: 1.5rem;
-        width: 40px;
       }
     }
 
@@ -1117,12 +1192,17 @@
         display: none;
       }
 
+      #quien-soy .quien-photo-col {
+        min-height: auto;
+        display: block;
+      }
+
       #quien-soy .quien-photo-img {
-        position: static;
-        height: 420px;
+        height: 460px;
+        min-height: 460px;
         width: 100%;
         object-fit: cover;
-        object-position: center top;
+        object-position: center 20%;
       }
 
       #quien-soy .quien-text-col {
@@ -1928,60 +2008,51 @@
 
   <section id="quien-soy" class="quien">
     <div class="quien-layout">
-      <div class="quien-photo-col" style="display:flex; flex-direction:column;">
-        <img src="fotobroker.jpg" alt="Javier Pool" class="quien-photo-img" style="flex:1; min-height:0;">
-        <div style="background:var(--bg-navy); padding:2.5rem 2.25rem; flex-shrink:0;">
-          <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; color:#ffffff; line-height:1.3; letter-spacing:-0.02em; margin-bottom:1rem;">Trabajo a éxito</h3>
-          <div style="width:32px; height:1px; background:var(--gold); opacity:0.5; margin-bottom:1rem;"></div>
-          <p style="font-size:0.9rem; color:rgba(255,255,255,0.5); line-height:1.8; margin:0;">Sin retainer. Sin costes fijos. Cobro una comisión de éxito del 3% del precio al que consiga vender tu empresa. Intereses alineados desde el primer día.</p>
-        </div>
+      <div class="quien-photo-col">
+        <img src="fotobroker.jpg" alt="Javier Pool" class="quien-photo-img">
       </div>
       <div class="quien-text-col">
         <div class="quien-text reveal">
           <div class="quien-intro">
-            <h2 class="section-title">Mi historia</h2>
+            <h2 class="section-title">Mi experiencia, a tu servicio</h2>
             <p class="quien-eyebrow">KPMG · IESE · MBA · Empresario</p>
           </div>
 
-          <div class="valor-hub">
+          <ul class="quien-experiencia">
+            <li>Director de Administración y Finanzas en importantes filiales de multinacionales</li>
+            <li>Formé parte de una compañía que adquirió más de 400 empresas en Europa</li>
+            <li>Participé en la mayor adquisición de una empresa americana por parte de una francesa</li>
+            <li>Fundé y construí mi propia empresa durante 20 años — y la vendí</li>
+          </ul>
 
+          <div class="valor-hub">
             <div class="valor-claim">
               <p>Te ayudaré a dar este paso con confianza</p>
             </div>
 
             <div class="valor-grid">
 
-            <div class="valor-card">
-              <span class="valor-num">01</span>
-              <h3>Mi experiencia, a tu servicio</h3>
-              <ul class="valor-lista">
-                <li>Director de Administración y Finanzas en importantes filiales de multinacionales</li>
-                <li>Formé parte de una compañía que adquirió más de 400 empresas en Europa</li>
-                <li>Participé en la mayor adquisición de una empresa americana por parte de una francesa</li>
-                <li>Fundé y construí mi propia empresa durante 20 años — y la vendí</li>
-              </ul>
+              <div class="valor-card">
+                <h3>Maximizaré precio y condiciones de la operación</h3>
+                <p>Conozco las reglas del juego. Sé cómo piensan los compradores, qué criterios aplican y qué palancas mueven el precio y las condiciones a tu favor.</p>
+              </div>
+
+              <div class="valor-card">
+                <h3>Accederás a compradores que no están en ningún portal</h3>
+                <p>Se trata de tener alcance a compradores que puedan encajar financiera y estratégicamente, sin comprometer la confidencialidad de la operación.</p>
+              </div>
+
+              <div class="valor-card valor-card--navy">
+                <h3>Trabajo a éxito</h3>
+                <p>Sin retainer. Sin costes fijos. Cobro una comisión de éxito del 3% del precio al que consiga vender tu empresa. Intereses alineados desde el primer día.</p>
+              </div>
+
+              <div class="valor-card">
+                <h3>Cobertura fiscal y legal incluida</h3>
+                <p>Soy Censor Jurado de Cuentas y colaboramos con firmas legales de primer nivel para dar un servicio integral.</p>
+              </div>
+
             </div>
-
-            <div class="valor-card">
-              <span class="valor-num">02</span>
-              <h3>Accederás a compradores que no están en ningún portal</h3>
-              <p>Se trata de tener alcance a compradores que puedan encajar financiera y estratégicamente, sin comprometer la confidencialidad de la operación.</p>
-            </div>
-
-            <div class="valor-card">
-              <span class="valor-num">03</span>
-              <h3>Maximizaré precio y condiciones de la operación</h3>
-              <p>Conozco las reglas del juego. Sé cómo piensan los compradores, qué criterios aplican y qué palancas mueven el precio y las condiciones a tu favor.</p>
-            </div>
-
-            <div class="valor-card">
-              <span class="valor-num">04</span>
-              <h3>Cobertura fiscal y legal incluida</h3>
-              <p>Soy Censor Jurado de Cuentas y colaboramos con firmas legales de primer nivel para dar un servicio integral.</p>
-            </div>
-
-          </div>
-
           </div>
         </div>
       </div>
