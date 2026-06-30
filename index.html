@@ -638,7 +638,7 @@
     /* PROCESO — navy */
     #proceso { background: var(--bg-navy); }
     #proceso .section-title { color: #ffffff; }
-    #proceso .section-sub { color: rgba(255, 255, 255, 0.5); }
+    #proceso .section-sub { color: rgba(255, 255, 255, 0.5); margin-bottom: 2rem; }
     #proceso .timeline::before {
       background: linear-gradient(180deg, var(--gold), rgba(196, 146, 42, 0.1));
       width: 1px;
@@ -669,13 +669,21 @@
     }
 
     /* FAQ — blanco */
-    #faq { background: #ffffff; }
+    #faq { background: #ffffff; padding: clamp(5rem, 11vw, 7rem) 0; }
     #faq .section-title { color: var(--bg-navy); }
-    #faq .faq-item { border-bottom: 1px solid var(--border-light); }
-    #faq .faq-question { color: var(--bg-navy); }
-    #faq .faq-question:hover { color: var(--gold); }
-    #faq .faq-icon { color: var(--gold); }
-    #faq .faq-answer-inner { color: var(--text-muted); }
+    #faq .faq-cta {
+      text-align: center;
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+    #faq .faq-cta p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.35rem);
+      color: var(--text-body);
+      margin: 0 0 1.75rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
 
     /* BLOG — blanco */
     #blog {
@@ -966,32 +974,34 @@
       list-style: none;
       padding: 0;
       margin: 0;
+      font-family: "DM Sans", system-ui, sans-serif;
       font-size: 0.9rem;
       line-height: 1.8;
       color: var(--text-muted);
+      font-weight: 400;
     }
 
     #quien-soy .valor-lista li {
       position: relative;
-      padding-left: 1.1rem;
-      margin-bottom: 0.55rem;
+      padding-left: 1.15rem;
+      margin-bottom: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
     }
 
     #quien-soy .valor-lista li:last-child {
       margin-bottom: 0;
-      color: var(--text);
-      font-weight: 500;
     }
 
     #quien-soy .valor-lista li::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 0.65em;
-      width: 6px;
-      height: 1.5px;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
       background: var(--gold);
-      border-radius: 1px;
+      border-radius: 50%;
     }
 
     #quien-soy .valor-card--highlight {
@@ -1943,7 +1953,7 @@
   <section id="proceso" class="alt">
     <div class="container">
       <h2 class="section-title reveal">¿Cómo trabajo?</h2>
-      <p class="section-sub reveal">Un proceso profesional, confidencial y orientado a una sola cosa: que obtengas el máximo valor por lo que has construido.</p>
+      <p class="section-sub reveal">Orden, agilidad y confidencialidad</p>
 
       <div class="timeline">
         <div class="timeline-step reveal" data-step="1">
@@ -2010,63 +2020,10 @@
 
   <section id="faq">
     <div class="container">
-      <div class="faq-list">
-
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
-            ¿Cuánto vale mi empresa?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Desconfía de cualquiera que te diga que basta con aplicar un múltiplo de EBITDA. Dos empresas del mismo tamaño, beneficio y sector pueden distar mucho en valoración: la calidad del equipo, la concentración de clientes, la dependencia del fundador, las perspectivas de crecimiento o la previsibilidad de los ingresos son solo algunos de los factores que determinan lo que un comprador estará dispuesto a pagar realmente. Además, hay un factor subjetivo: tu empresa puede no aportarle el mismo valor a un comprador que a otro.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
-            ¿Cuánto tarda en venderse una empresa?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Depende de la agilidad con la que se muevan comprador y vendedor, pero en condiciones normales, el proceso completo — desde que firmamos entre tú y yo el mandato de venta, hasta el cierre de la operación — suele llevar entre 6 y 12 meses. Los primeros 2 o 3 meses se dedican a recopilar información, preparar el material y contactar compradores; los siguientes a gestionar a los interesados, recibir ofertas y negociar; y los últimos a la due diligence y el cierre legal.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
-            ¿Cuánto me cuesta tenerte de asesor?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Nada hasta que vendas. No cobro retainer ni ningún coste fijo. Mi única remuneración es una comisión de éxito del 3% sobre el precio que consiga por tu empresa — y solo la cobro cuando tú ya hayas cobrado. Nuestros intereses están completamente alineados desde el primer día.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-question" aria-expanded="false">
-            ¿Qué pasa con mis empleados?
-            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Es una de las preguntas más humanas que me hacen. Hay herramientas legales para protegerlos, por supuesto — pero más allá de eso, se trata de filtrar a la hora de seleccionar al comprador. Tan importante es el precio que ofrece, como que vaya a cuidar lo que has construido.
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="reveal" style="text-align:center; margin-top:3.5rem;">
-        <p style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; color:var(--text-body); margin-bottom:1.75rem; font-style:italic;">Pregúntame todo lo que quieras en nuestra primera llamada.</p>
+      <div class="faq-cta reveal">
+        <p>Pregúntame todo lo que quieras en nuestra primera llamada.</p>
         <a class="btn-gold" href="https://calendly.com/javier-javierpoolasesores/30min" target="_blank" rel="noopener" onclick="if(window.gtag){gtag('event','conversion_calendly',{'event_category':'conversions','event_label':'clic_calendly'});}">Hablemos sin compromiso</a>
       </div>
-
     </div>
   </section>
 
@@ -2118,33 +2075,6 @@
         if (e.key === "Escape") closeMenu();
       });
 
-      /* FAQ accordion */
-      document.querySelectorAll(".faq-item").forEach(function (item) {
-        var btn = item.querySelector(".faq-question");
-        var answer = item.querySelector(".faq-answer");
-        var inner = answer.querySelector(".faq-answer-inner");
-
-        btn.addEventListener("click", function () {
-          var isOpen = item.classList.contains("is-open");
-          document.querySelectorAll(".faq-item.is-open").forEach(function (other) {
-            if (other !== item) {
-              other.classList.remove("is-open");
-              other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
-              other.querySelector(".faq-answer").style.maxHeight = null;
-            }
-          });
-          if (isOpen) {
-            item.classList.remove("is-open");
-            btn.setAttribute("aria-expanded", "false");
-            answer.style.maxHeight = null;
-          } else {
-            item.classList.add("is-open");
-            btn.setAttribute("aria-expanded", "true");
-            answer.style.maxHeight = inner.scrollHeight + "px";
-          }
-        });
-      });
-
       /* Intersection Observer: reveal */
       var revealEls = document.querySelectorAll(".reveal");
       if ("IntersectionObserver" in window) {
@@ -2167,13 +2097,6 @@
           el.classList.add("is-visible");
         });
       }
-
-      window.addEventListener("resize", function () {
-        document.querySelectorAll(".faq-item.is-open .faq-answer").forEach(function (a) {
-          var inner = a.querySelector(".faq-answer-inner");
-          if (inner) a.style.maxHeight = inner.scrollHeight + "px";
-        });
-      });
     })();
   </script>
 
