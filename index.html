@@ -863,7 +863,7 @@
     #quien-soy .quien-bottom {
       grid-column: 1 / -1;
       grid-row: 2;
-      width: min(1120px, 92vw);
+      width: min(1320px, 96vw);
       margin: 0 auto;
       padding: 2.75rem 0 4.75rem;
     }
@@ -947,7 +947,7 @@
     }
 
     #quien-soy .valor-card {
-      padding: 2.4rem 1.65rem;
+      padding: 2.75rem 2.25rem;
       border-right: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
       background: #ffffff;
@@ -989,7 +989,7 @@
 
     #quien-soy .valor-card h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--bg-navy);
       line-height: 1.3;
@@ -998,7 +998,7 @@
     }
 
     #quien-soy .valor-card p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       line-height: 1.8;
       margin: 0;
@@ -1045,6 +1045,10 @@
     @media (max-width: 900px) {
       #quien-soy .valor-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      #quien-soy .quien-bottom {
+        width: min(1120px, 92vw);
       }
     }
 
