@@ -126,6 +126,17 @@
       box-shadow: 0 0 0 3px rgba(196,146,42,0.08);
     }
 
+    .field-error {
+      color: #e53e3e;
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+      display: none;
+    }
+
+    .field-error.is-visible {
+      display: block;
+    }
+
     .calc-submit {
       width: 100%;
       margin-top: 0.5rem;
@@ -293,11 +304,13 @@
         <div class="field-wrap">
           <label for="telefono">Teléfono de contacto</label>
           <input type="tel" id="telefono" name="telefono" required>
+          <span class="field-error"></span>
         </div>
 
         <div class="field-wrap">
           <label for="email">Correo electrónico</label>
           <input type="email" id="email" name="email" required>
+          <span class="field-error"></span>
         </div>
 
         <div class="field-wrap">
@@ -353,6 +366,39 @@
       submitBtn.disabled = true;
       checkFormValidity();
 
+      function clearFieldError(field) {
+        var errorEl = field.parentElement.querySelector('.field-error');
+        if (errorEl) {
+          errorEl.textContent = '';
+          errorEl.classList.remove('is-visible');
+        }
+      }
+
+      function showFieldError(field, message) {
+        var errorEl = field.parentElement.querySelector('.field-error');
+        field.style.borderColor = '#e53e3e';
+        if (errorEl) {
+          errorEl.textContent = message;
+          errorEl.classList.add('is-visible');
+        }
+      }
+
+      function isValidPhone(value) {
+        return /^[67]\d{8}$/.test(value.replace(/\s/g, ''));
+      }
+
+      function isValidEmail(value) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+      }
+
+      ['telefono', 'email'].forEach(function (id) {
+        var field = document.getElementById(id);
+        field.addEventListener('input', function () {
+          clearFieldError(field);
+          field.style.borderColor = '';
+        });
+      });
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
@@ -361,6 +407,7 @@
         var hasError = false;
 
         fields.forEach(function (field) {
+          clearFieldError(field);
           if (!field.value || field.value.trim() === '') {
             field.style.borderColor = '#e53e3e';
             if (!firstError) firstError = field;
@@ -375,6 +422,23 @@
             firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
             firstError.focus();
           }
+          return;
+        }
+
+        var telefonoField = document.getElementById('telefono');
+        var emailField = document.getElementById('email');
+
+        if (!isValidPhone(telefonoField.value)) {
+          showFieldError(telefonoField, 'Introduce un número de teléfono válido');
+          telefonoField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          telefonoField.focus();
+          return;
+        }
+
+        if (!isValidEmail(emailField.value)) {
+          showFieldError(emailField, 'Introduce un correo electrónico válido');
+          emailField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          emailField.focus();
           return;
         }
 
